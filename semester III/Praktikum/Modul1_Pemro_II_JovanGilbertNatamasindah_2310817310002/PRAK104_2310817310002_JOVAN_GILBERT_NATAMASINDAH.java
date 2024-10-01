@@ -9,8 +9,6 @@ public class PRAK104_2310817310002_JOVAN_GILBERT_NATAMASINDAH {
         System.out.print("Tangan Bagas: ");
         String[] TanganBagas = scanner.nextLine().split(" ");
 
-        
-
         int scoreAbu = 0, scoreBagas = 0;
 
         for (int Round = 0 ; Round < 3 ; Round++) {
@@ -27,16 +25,14 @@ public class PRAK104_2310817310002_JOVAN_GILBERT_NATAMASINDAH {
         }
 
         if(scoreAbu > scoreBagas) {
-            System.out.println("Abu");
+            System.out.print("Abu");
         }
         else if(scoreAbu < scoreBagas) {
-            System.out.println("Bagas");
+            System.out.print("Bagas");
         }
         else{
-            System.out.println("Seri");
+            System.out.print("Seri");
         }
-
-        // System.out.println("Abu: " + scoreAbu + "Bagas: " + scoreBagas);
 
         scanner.close();
 

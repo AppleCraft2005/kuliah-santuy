@@ -25,49 +25,22 @@ public class PRAK101_2310817310002_JOVAN_GILBERT_NATAMASINDAH {
         System.out.print("Masukkan Berat Badan: ");
         String BeratBadan = scanner.nextLine();
 
-        scanner.close();
-
         switch (BulanLahir) {
-            case "1":
-                BulanLahir = "Januari";
-                break;
-            case "2":
-                BulanLahir = "Februari";
-                break;
-            case "3":
-                BulanLahir = "Maret";
-                break;
-            case "4":
-                BulanLahir = "April";
-                break;
-            case "5":
-                BulanLahir = "Mei";
-                break;
-            case "6":
-                BulanLahir = "Juni";
-                break;
-            case "7":
-                BulanLahir = "Juli";
-                break;
-            case "8":
-                BulanLahir = "Agustus";
-                break;
-            case "9":
-                BulanLahir = "September";
-                break;
-            case "10":
-                BulanLahir = "Oktober";
-                break;
-            case "11":
-                BulanLahir = "November";
-                break;
-            case "12":
-                BulanLahir = "Desember";
-                break;
-
+            case "1" -> BulanLahir = "Januari";
+            case "2" -> BulanLahir = "Februari";        
+            case "3" -> BulanLahir = "Maret";
+            case "4" -> BulanLahir = "April";
+            case "5" -> BulanLahir = "Mei";
+            case "6" -> BulanLahir = "Juni";
+            case "7" -> BulanLahir = "Juli";
+            case "8" -> BulanLahir = "Agustus";
+            case "9" -> BulanLahir = "September";
+            case "10" -> BulanLahir = "Oktober";
+            case "11" -> BulanLahir = "November";
+            case "12" -> BulanLahir = "Desember";
         }
 
-        System.out.println("Nama Lengkap " + Nama + ", Lahir di " + TempatLahir + " pada Tanggal " + TanggalLahir + " " + BulanLahir + " " + TahunLahir  + " Tinggi Badan " + TinggiBadan + " cm" + " dan Berat Badan " + BeratBadan + " kilogram");
+       System.out.println("Nama Lengkap " + Nama + ", Lahir di " + TempatLahir + " pada Tanggal " + TanggalLahir + " " + BulanLahir + " " + TahunLahir  + " Tinggi Badan " + TinggiBadan + " cm" + " dan Berat Badan " + BeratBadan + " kilogram");
 
         scanner.close();
         
