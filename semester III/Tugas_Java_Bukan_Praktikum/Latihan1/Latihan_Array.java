@@ -19,14 +19,14 @@ public class Latihan_Array {
       System.out.println();
       Inputan.nextLine();
 
+      DataMahasiswa mhs = new DataMahasiswa(NIM, Nama, UTS, UAS);
+      ListMahasiswa.add(mhs);
+      
       System.out.print("ingin menambah data lagi?(y/n): ");
       String Pilihan = Inputan.nextLine();
       if(Pilihan.equals("n")) {
          break;
       }
-      
-      DataMahasiswa mhs = new DataMahasiswa(NIM, Nama, UTS, UAS);
-      ListMahasiswa.add(mhs);
 
    }
     System.out.println("=======================================================");
