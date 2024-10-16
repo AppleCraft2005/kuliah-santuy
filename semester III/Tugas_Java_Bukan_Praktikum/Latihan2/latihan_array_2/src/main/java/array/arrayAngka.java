@@ -10,21 +10,23 @@ public class arrayAngka {
         System.out.print("Masukkan ukuran dari array: ");
         int panjangArray = Inputan.nextInt();
 
-        int[] angka = new int[panjangArray];
+        Inputan.nextLine();
+
+        String[] Nama = new String[panjangArray];
 
         for(int i = 0 ; i < panjangArray ; i++) {
             System.out.print("Masukkan data ke-" + i + ": ");
-            angka[i] = Inputan.nextInt();
+            Nama[i] = Inputan.nextLine();
         } 
 
-        System.out.print("Isi Array Angka = ");
+        System.out.print("Isi Array Nama = ");
         for(int i = 0 ; i < panjangArray ; i++) {
-            System.out.print(angka[i] + " ");
+            System.out.print(Nama[i] + " ");
         }
 
         System.out.printf("\n\n");
 
         System.out.println("Panjang array: " + panjangArray);
-        System.out.println("Nilai array: " + angka[2]);
+        System.out.println("Nilai array: " + Nama[2]);
     }
 }
