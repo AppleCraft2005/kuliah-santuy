@@ -21,7 +21,7 @@ public class Latihan_Array {
 
       DataMahasiswa mhs = new DataMahasiswa(NIM, Nama, UTS, UAS);
       ListMahasiswa.add(mhs);
-      
+
       System.out.print("ingin menambah data lagi?(y/n): ");
       String Pilihan = Inputan.nextLine();
       if(Pilihan.equals("n")) {
@@ -33,7 +33,7 @@ public class Latihan_Array {
     System.out.printf("%-4s %-5s %-10s %-5s %-5s %-12s %s\n", "No", "NIM", "Nama", "UTS", "UAS", "Nilai Akhir", "Index");
     for(int i = 0; i < ListMahasiswa.size(); i++) {
       DataMahasiswa mhsLagi = ListMahasiswa.get(i);
-      System.out.printf("%-4d %-5s %-10s %-5.1f %-5.1f %-12.2f %c\n", i+1, mhsLagi.NIM, mhsLagi.Nama, mhsLagi.UTS, mhsLagi.UAS, mhsLagi.NilaiAkhir, mhsLagi.Index);
+      System.out.printf("%-4d %-5s %-10s %-5.1f %-5.1f %-12.1f %c\n", i+1, mhsLagi.NIM, mhsLagi.Nama, mhsLagi.UTS, mhsLagi.UAS, mhsLagi.NilaiAkhir, mhsLagi.Index);
     }
     System.out.println("=======================================================");
  }
