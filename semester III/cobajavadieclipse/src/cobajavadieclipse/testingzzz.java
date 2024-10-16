@@ -1,34 +1,20 @@
 package cobajavadieclipse;
 
-public class testingzzz {
+class Mobiltest {
+    String warna;
+    int tahunProduksi;
+    String merk;
+}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.print("halo manusai cerdas");
-		System.out.println("hai hai");
-		
-		var Angka1 = 3;
-		int Angka2;
-		Angka2 = 4;
-		
-		Integer Hasil = Angka1 + Angka2;
-		
-		System.out.println(Hasil);
-		
-		char huruf = 'A';
-		System.out.println(huruf);
-		
-		String namaDepan = "Apple";
-		String namaBelakang = "Craft";
-		System.out.println(namaDepan + namaBelakang);
-		
-		if
-		
-		
-		
-		
-		
-		
-	}
+public class classobject {
+    public static void main(String[] args) {
+        Mobiltest mobilku = new Mobiltest();
+      //mengisi atribut class 
+        mobilku.tahunProduksi = 2007;
+        mobilku.warna = "Merah";
 
+      //memanggil isi atribut 
+        System.out.println("Warna mobil: " + mobilku.warna);
+        System.out.println("Tahun produksi: " + mobilku.tahunProduksi);
+    }
 }

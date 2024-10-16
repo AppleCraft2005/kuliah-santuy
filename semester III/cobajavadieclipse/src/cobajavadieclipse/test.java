@@ -1,14 +1,20 @@
 package cobajavadieclipse;
 
+class Mobiltest {
+    String warna;
+    int tahunProduksi;
+    String merk;
+}
+
 public class test {
+    public static void main(String[] args) {
+        Mobiltest mobilku = new Mobiltest();
+      //mengisi atribut class 
+        mobilku.tahunProduksi = 2007;
+        mobilku.warna = "Merah";
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.print("halo manusai cerdas");
-		System.out.println("hai hai");
-		
-		
-		
-	}
-
+      //memanggil isi atribut 
+        System.out.println("Warna mobil: " + mobilku.warna);
+        System.out.println("Tahun produksi: " + mobilku.tahunProduksi);
+    }
 }
