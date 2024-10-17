@@ -1,21 +1,32 @@
 package klas_dan_objek;
 
-class Mobiltest {
-    String warna;
-    int tahunProduksi;
-    String merk;
+class KonversiJarak {
+    int jarakKM;
+
+    public int toMeter(int jarakKM){
+      int Hasil = jarakKM * 1000;
+      return Hasil;
+    }
+
+    public int toCentimeter(int jarakKM) {
+      int Hasil = jarakKM * 100000;
+      return Hasil;
+    }
 }
 
 public class classobject {
     public static void main(String[] args) {
-        Mobiltest mobilku = new Mobiltest();
+        KonversiJarak jarakKampus = new KonversiJarak();
+        KonversiJarak jarakBandara = new KonversiJarak();
       //mengisi atribut class 
-        mobilku.tahunProduksi = 2007;
-        mobilku.warna = "Merah";
-        mobilku.merk = "Toyota";
+        jarakKampus.jarakKM = 5;
+        jarakBandara.jarakKM = 28;
+
       //memanggil isi atribut 
-        System.out.println("Warna mobil: " + mobilku.warna);
-        System.out.println("Tahun produksi: " + mobilku.tahunProduksi);
-        System.out.println("Merk mobil: " + mobilku.merk);
+        System.out.println("jarak yang harus ditempuh oleh Rizki dari rumah ke kampus adalah " + 
+        jarakKampus.toMeter(jarakKampus.jarakKM) + " meter dan " + jarakKampus.toCentimeter(jarakKampus.jarakKM) + " centimeter");
+        System.out.println("jarak yang harus ditempuh oleh Damar dari rumah ke Bandara adalah " + 
+        jarakBandara.toMeter(jarakBandara.jarakKM) + " meter dan " + jarakBandara.toCentimeter(jarakBandara.jarakKM) + " centimeter");
+
     }
 }
