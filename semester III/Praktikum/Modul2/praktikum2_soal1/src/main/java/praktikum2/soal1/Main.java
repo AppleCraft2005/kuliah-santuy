@@ -1,4 +1,4 @@
-package cobajavadieclipse;
+package praktikum2.soal1;
 
 class Buah {
     String Nama;
@@ -22,13 +22,23 @@ class Buah {
         return jumlahBeli / Berat * Harga;
     }
     double TotalDiskon() {
-        return (jumlahBeli / 4 * 0.02) * hargaSebelumDiskon();
+        double persenDiskon = Math.floor(jumlahBeli / 4) * 0.02;
+        return persenDiskon * hargaSebelumDiskon();
+
+        // double persenDiskon = Math.floor(jumlahBeli / 4) * 0.02;
+        // return persenDiskon * Harga * 4;
+
+        // double jumlah4KG = (jumlahBeli / 4);
+        // double hargaPer4KG = Harga * (4 / Berat);
+        // return jumlah4KG * hargaPer4KG * 0.02;
+        
     }
     double hargaSetelahDiskon() {
         return hargaSebelumDiskon() - TotalDiskon();
     }
 }
-public class test {
+
+public class Main {
     public static void main(String[] args) {
         Buah buah1 = new Buah();
         buah1.Nama = "Apel";
@@ -54,6 +64,11 @@ public class test {
         buah3.Harga = 10000;
         buah3.jumlahBeli = 12;
         buah3.showInfo();
+
+        
+
+
+
 
     }
 }
