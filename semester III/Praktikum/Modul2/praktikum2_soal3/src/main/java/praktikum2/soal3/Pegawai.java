@@ -18,9 +18,7 @@ public class Pegawai {
     }
     // tidak terdapat argumen
     // public void setJabatan()
-    public void setJabatan(String jabatan) {
-        // atribut yang ditunjuk tidak sesuai
-        // this.jabatan = j;
-        this.jabatan = jabatan;
+    public void setJabatan(String j) {
+        this.jabatan = j;
     }
 }

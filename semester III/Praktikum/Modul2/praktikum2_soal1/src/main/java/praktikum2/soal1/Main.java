@@ -22,16 +22,15 @@ class Buah {
         return jumlahBeli / Berat * Harga;
     }
     double TotalDiskon() {
-        double persenDiskon = Math.floor(jumlahBeli / 4) * 0.02;
-        return persenDiskon * hargaSebelumDiskon();
-
         // double persenDiskon = Math.floor(jumlahBeli / 4) * 0.02;
-        // return persenDiskon * Harga * 4;
+        // return persenDiskon * hargaSebelumDiskon();
+
+        double persenDiskon = Math.floor(jumlahBeli / 4) * 0.02;
+        return persenDiskon * Harga * 4;
 
         // double jumlah4KG = (jumlahBeli / 4);
         // double hargaPer4KG = Harga * (4 / Berat);
         // return jumlah4KG * hargaPer4KG * 0.02;
-        
     }
     double hargaSetelahDiskon() {
         return hargaSebelumDiskon() - TotalDiskon();
@@ -64,11 +63,5 @@ public class Main {
         buah3.Harga = 10000;
         buah3.jumlahBeli = 12;
         buah3.showInfo();
-
-        
-
-
-
-
     }
 }
