@@ -49,5 +49,7 @@ public class Main {
             Negara country = listNegara.get(j);
             country.showDetail();
         }
+
+        Inputan.close();
     }
 }
