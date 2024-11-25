@@ -20,10 +20,12 @@ class Negara {
     void showDetail() {
         if(jenis_kepemimpinan.equals("monarki")) {
             System.out.println("Negara " + nama + " mempunyai Raja bernama " + nama_pemimpin );
+            System.out.println("");
         }
         else {
-            System.out.println("Negara " + nama + " mempunyai " + jenis_kepemimpinan + " bernama " + nama_pemimpin + " Deklarasi Kemerdekaan pada Tanggal " + tanggal_kemerdekaan + " " + bulan_kemerdekaan + " " + tahun_kemerdekaan);
-
+            System.out.println("Negara " + nama + " mempunyai " + jenis_kepemimpinan + " bernama " + nama_pemimpin);
+            System.out.println("Deklarasi Kemerdekaan pada Tanggal " + tanggal_kemerdekaan + " " + bulan_kemerdekaan + " " + tahun_kemerdekaan);
+            System.out.println("");
         }
     }
 

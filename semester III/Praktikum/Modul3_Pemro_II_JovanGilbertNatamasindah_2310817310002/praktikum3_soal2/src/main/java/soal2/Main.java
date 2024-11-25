@@ -30,6 +30,7 @@ public class Main {
         for(int i = 0 ; i < jumlahNegara ; i++) {
             String Nama = Inputan.nextLine();
             String jenisKepemimpinan = Inputan.nextLine().toLowerCase();
+            String jenisKepemimpinanNew = jenisKepemimpinan.substring(0,1).toUpperCase() + jenisKepemimpinan.substring(1);
             String namaPemimpin = Inputan.nextLine();
             if(jenisKepemimpinan.equals("monarki")) {
                 Negara Country = new Negara(Nama, jenisKepemimpinan, namaPemimpin, " ", " ", " ");
@@ -40,7 +41,7 @@ public class Main {
                 String bulanKemerdekaan = Inputan.nextLine();
                 String tahunKemerdekaan = Inputan.nextLine();
 
-                Negara Country = new Negara(Nama, jenisKepemimpinan, namaPemimpin, tanggalKemerdekaan, namaBulan.get(bulanKemerdekaan), tahunKemerdekaan);
+                Negara Country = new Negara(Nama, jenisKepemimpinanNew, namaPemimpin, tanggalKemerdekaan, namaBulan.get(bulanKemerdekaan), tahunKemerdekaan);
                 listNegara.add(Country);
             }
         }
