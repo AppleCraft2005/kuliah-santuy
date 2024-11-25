@@ -1,8 +1,8 @@
 package soal3;
 
 class Mahasiswa {
-    String nama;
-    String nim;
+    private String nama;
+    private String nim;
     
     Mahasiswa(String Nama, String NIM) {
         this.nama = Nama;

@@ -38,7 +38,7 @@ public class Main {
                 System.out.print("Masukkan NIM Mahasiswa yang akan dihapus: ");
                 String nimTemp = Inputan.nextLine();
                 for(int j = 0 ; j < listMhs.size() ; j++) {
-                    if(nimTemp.equals(listMhs.get(j).nim)) {
+                    if(nimTemp.equals(listMhs.get(j).getNim())) {
                         listMhs.remove(j);
                     }
                 }
@@ -49,15 +49,15 @@ public class Main {
                 String nimSearch = Inputan.nextLine();
 
                 for(int j = 0 ; j < listMhs.size() ; j++) {
-                    if(nimSearch.equals(listMhs.get(j).nim)) {
-                        System.out.println("NIM: " + listMhs.get(j).nim + ", Nama: " + listMhs.get(j).nama);
+                    if(nimSearch.equals(listMhs.get(j).getNim())) {
+                        System.out.println("NIM: " + listMhs.get(j).getNim() + ", Nama: " + listMhs.get(j).getNama());
                     }
                 }
             }
             else if(Pilihan == 4) {
                 System.out.println("Daftar Mahasiswa:");
                 for(int j = 0 ; j < listMhs.size() ; j++) {
-                    System.out.println("NIM: " + listMhs.get(j).nim + ", Nama: " + listMhs.get(j).nama);
+                    System.out.println("NIM: " + listMhs.get(j).getNim() + ", Nama: " + listMhs.get(j).getNama());
                 }
             }
             else {
