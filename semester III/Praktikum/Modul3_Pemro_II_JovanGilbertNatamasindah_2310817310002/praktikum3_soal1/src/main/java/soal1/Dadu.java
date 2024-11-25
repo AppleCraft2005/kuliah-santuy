@@ -10,5 +10,4 @@ class Dadu {
     int acakNilai() {
         return Nilai = (int)(Math.random() * 6) + 1;
     }
-
 }

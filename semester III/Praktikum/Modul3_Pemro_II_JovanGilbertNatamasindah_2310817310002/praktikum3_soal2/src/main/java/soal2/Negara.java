@@ -28,5 +28,4 @@ class Negara {
             System.out.println("");
         }
     }
-
 }

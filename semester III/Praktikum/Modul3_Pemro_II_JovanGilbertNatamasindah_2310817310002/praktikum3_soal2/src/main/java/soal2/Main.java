@@ -21,7 +21,6 @@ public class Main {
         namaBulan.put("12", "Desember");
 
         Scanner Inputan = new Scanner(System.in);
-        System.out.print("Masukkan jumlah negara: ");
         int jumlahNegara = Inputan.nextInt();
 
         Inputan.nextLine();
