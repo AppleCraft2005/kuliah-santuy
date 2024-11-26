@@ -46,8 +46,7 @@ public class Main {
         }
 
         for(int j = 0 ; j < listNegara.size() ; j++) {
-            Negara country = listNegara.get(j);
-            country.showDetail();
+            listNegara.get(j).showDetail();
         }
 
         Inputan.close();
