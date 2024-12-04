@@ -2,23 +2,6 @@ package soal1;
 
 import java.util.Scanner;
 
-class HewanPeliharaan {
-    String nama;
-    String ras;
-
-    HewanPeliharaan(String r, String n) {
-        this.ras = r;
-        this.nama = n;
-    }
-
-    void display() {
-        System.out.println("");
-        System.out.println("Detail Hewan Peliharaan:");
-        System.out.println("Nama hewan peliharaanku adalah : " + nama);
-        System.out.println("Dengan ras : " + ras);
-    }
-}
-
 public class Main {
     public static void main(String[] args) {
         Scanner Inputan = new Scanner(System.in);
