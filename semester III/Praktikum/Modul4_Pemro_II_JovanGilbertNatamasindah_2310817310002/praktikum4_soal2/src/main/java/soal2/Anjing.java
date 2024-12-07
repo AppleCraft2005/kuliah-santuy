@@ -1,8 +1,8 @@
 package soal2;
 
 class Anjing extends HewanPeliharaan {
-    String warnaBulu;
-    String[] Kemampuan;
+    private String warnaBulu;
+    private String[] Kemampuan;
 
     Anjing(String n, String r, String w, String[] Kemampuan) {
         super(n, r);
