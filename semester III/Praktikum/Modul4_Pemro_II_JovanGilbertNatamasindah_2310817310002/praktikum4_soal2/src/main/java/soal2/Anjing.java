@@ -1,16 +1,16 @@
 package soal2;
 
-class Anjing extends HewanPeliharaan {
+public class Anjing extends HewanPeliharaan {
     private String warnaBulu;
     private String[] Kemampuan;
 
-    Anjing(String n, String r, String w, String[] Kemampuan) {
+    public Anjing(String n, String r, String w, String[] Kemampuan) {
         super(n, r);
         this.warnaBulu = w;
         this.Kemampuan = Kemampuan;
     }
 
-    void displayDetailAnjing() {
+    public void displayDetailAnjing() {
         super.display();
         System.out.println("Memiliki warna bulu : " + warnaBulu);
         System.out.print("Memiliki Kemampuan :");

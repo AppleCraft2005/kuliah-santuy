@@ -1,14 +1,14 @@
 package soal2;
 
-class Kucing extends HewanPeliharaan {
+public class Kucing extends HewanPeliharaan {
     private String warnaBulu;
 
-    Kucing(String r, String n, String w) {
+    public Kucing(String r, String n, String w) {
         super(r, n);
         this.warnaBulu = w;
     }
 
-    void displayDetailKucing() {
+    public void displayDetailKucing() {
         super.display();
         System.out.println("Memiliki warna bulu: " + warnaBulu);
     }
