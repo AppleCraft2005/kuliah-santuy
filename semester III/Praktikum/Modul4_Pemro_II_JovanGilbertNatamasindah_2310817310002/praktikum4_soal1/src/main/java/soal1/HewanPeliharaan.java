@@ -1,8 +1,8 @@
 package soal1;
 
 class HewanPeliharaan {
-    String nama;
-    String ras;
+    private String nama;
+    private String ras;
 
     HewanPeliharaan(String r, String n) {
         this.ras = r;
