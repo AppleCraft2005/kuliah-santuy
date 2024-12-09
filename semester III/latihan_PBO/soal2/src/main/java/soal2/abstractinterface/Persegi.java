@@ -2,6 +2,9 @@ package soal2.abstractinterface;
 
 public class Persegi extends BangunDatar implements Keliling, simetri{
     public int sisi;
+    public Persegi(int Sisi){
+        this.sisi = Sisi;
+    }
     @Override
     public double hitungLuas() {
         return this.sisi * this.sisi;
@@ -18,10 +21,9 @@ public class Persegi extends BangunDatar implements Keliling, simetri{
     public double hitungSimLipat() {
         return 4.0;
     }
+    @Override
     public void tampilHasil() {
-        System.out.println("Luas : " + this.hitungLuas());
-        System.out.println("Keliling : " + this.hitungKeliling());
-        System.out.println("simetri lipat : " + this.hitungSimLipat());
-        System.out.println("simetri putar : " + this.hitungSimPutar());
+        System.out.printf("Luas             : %.1f cm^2               keliling        : %.1f cm \n", hitungLuas(), hitungKeliling());
+        System.out.printf("Simetri lipat    : %.1f                    Simetri putar   : %.1f ", hitungSimLipat(), hitungSimPutar());
     }
 }

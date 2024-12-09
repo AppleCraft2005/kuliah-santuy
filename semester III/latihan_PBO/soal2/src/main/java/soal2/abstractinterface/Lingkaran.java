@@ -2,6 +2,9 @@ package soal2.abstractinterface;
 
 public class Lingkaran extends BangunDatar implements Keliling, simetri{
     public int jejari;
+    public Lingkaran(int Jejari) {
+        this.jejari = Jejari;
+    }
     @Override
     public double hitungLuas() {
         return Math.PI * this.jejari * this.jejari;
@@ -20,9 +23,7 @@ public class Lingkaran extends BangunDatar implements Keliling, simetri{
     }
     @Override
     public void tampilHasil() {
-        System.out.println("Luas : " + this.hitungLuas());
-        System.out.println("Keliling : " + this.hitungKeliling());
-        System.out.println("simetri lipat : " + this.hitungSimLipat());
-        System.out.println("simetri putar : " + this.hitungSimPutar());
+        System.out.printf("Luas             : %f cm^2       keliling        : %f cm \n", hitungLuas(), hitungKeliling());
+        System.out.printf("Simetri lipat    : %.1f               Simetri putar   : %.1f ", hitungSimLipat(), hitungSimPutar());
     }
 }
