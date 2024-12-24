@@ -1,6 +1,5 @@
 package praktikum6.soal1;
 
-
 public class Mahasiswa {
     private int id;
     private String nama;
