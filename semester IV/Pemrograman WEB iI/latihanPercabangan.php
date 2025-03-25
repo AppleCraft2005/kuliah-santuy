@@ -7,9 +7,7 @@
 </head>
 <body>
     <?php
-        $nilai = isSet($_POST['nilai']) ? $_POST['nilai'] : "Anda belum memasukkan nilai";
-        $huruf = " ";
-        $hurufSwitch = " ";
+        $nilai = 72;
 
         if ($nilai >= 80) {$huruf = 'A';}
         elseif ($nilai >= 70 and $nilai <= 79) {$huruf = 'B';}
@@ -32,18 +30,15 @@
                 break; 
             case $nilai <= 49;
                 $hurufSwitch = 'E';
-                break;     
+                break;  
             default:
                 echo "nilai tidak valid";
                 break;
         }
     ?>
 
-    <h2>Program Pengecekan Huruf dari Nilai yang diberikan</h2>
-    <form method="POST">
-        <input type="number" name="nilai" placeholder="Silahkan masukkan nilai: ">
-        <input type="submit">
-    </form>
+    <h2>Program Konversi Nilai Angka ke Huruf</h2>
+
     <h3>Pada percabangan if else:</h3>
     <p>Nilai yang disimpan: <?php echo $nilai; ?> sehingga hurufnya: <?php echo $huruf ?> </p>
 
