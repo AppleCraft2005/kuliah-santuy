@@ -7,5 +7,4 @@
     echo "Fahrenheit (F) = $toFahrenheit <br>";
     echo "Reamur (R) = $toReamur <br>";
     echo "Kelvin (K) = $toKelvin";
-
 ?>

@@ -10,5 +10,4 @@
 
     $Kerucut = round(1/3 * pi() * pow($Jari_jari,2) * $Tinggi, 3); 
     echo "$Kerucut m3";   
-
 ?>
