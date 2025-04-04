@@ -26,7 +26,3 @@ fun diceImg(Dice1: Int, Dice2: Int): Pair<Int, Int> {
     }
     return Pair(img1, img2)
 }
-
-
-
-
