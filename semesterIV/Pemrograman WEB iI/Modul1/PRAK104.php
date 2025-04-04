@@ -13,7 +13,7 @@
         <tr><td style="font-weight: bold;">Daftar Smartphone Samsung</td></tr>
 
         <?php 
-            $phoneList = array("Samsung Galaxy S22", "Samsung Galaxy S22+", "Samsung Galaxy A03", "Samsung Galaxy Xcover5");
+            $phoneList = ["Samsung Galaxy S22", "Samsung Galaxy S22+", "Samsung Galaxy A03", "Samsung Galaxy Xcover5"];
             foreach($phoneList as $i) {echo "<tr><td>  $i </td></tr>";}
         ?>
     </table>
