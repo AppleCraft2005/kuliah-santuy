@@ -53,10 +53,7 @@
             else if($asal == "Kelvin" && $tujuan == "Celcius") {$hasil = $nilai - 273.15; echo "<h2>Hasil Konversi $hasil °C</h2>";}
             else if($asal == "Kelvin" && $tujuan == "Fahrenheit") {$hasil = 9/5 * $nilai - 459.67; echo "<h2>Hasil Konversi $hasil °F</h2>";}
             else if($asal == "Kelvin" && $tujuan == "Rheamur") {$hasil = 4/5 * ($nilai - 273.15); echo "<h2>Hasil Konversi $hasil °R</h2>";}
-            
         }
     ?>
-
-    
 </body>
 </html>

@@ -21,9 +21,10 @@ if(isset($_POST["cari"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
 <body>
-    <h1>Daftar Mahasiswa</h1>
+    <h1 >Daftar Mahasiswa</h1>
 
     <form action="" method="post">
         <input type="text" name="keyword" size="30" autofocus placeholder="Masukkan Keyword Pencarian" autocomplete="off">

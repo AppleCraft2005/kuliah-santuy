@@ -1,3 +1,17 @@
+<?php 
+    $errNama = $errNim = $errJk = $nama = $nim = $jk = " ";
+
+        if(isset($_POST['submit'])) {
+            $nama = $_POST['nama'];
+            $nim = $_POST['nim'];
+            $jk = isset($_POST['jk']) ? $_POST['jk'] : "";
+
+            if(empty($nama)) {$errNama = "nama tidak boleh kosong";}
+            if(empty($nim)) {$errNim = "nim tidak boleh kosong";}
+            if(empty($jk)) {$errJk = "jenis kelamin tidak boleh kosong";}
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,41 +23,39 @@
             content: " *";
             color: red;
         }
+        .error {color: red;}
     </style>
 </head>
 <body>
     <form action="" method="post">
         <label for="nama" >Nama: </label>
         <span class="asterisk"> 
-            <input type="text" id="nama" name="nama" required>  
-        </span> <br>
+            <input type="text" id="nama" name="nama">  
+        </span>
+        <?php if($errNama) :?><span class="error"><?= $errNama; ?></span><?php endif; ?> <br>
 
         <label for="nim" >Nim: </label>
         <span class="asterisk"> 
-            <input type="text" id="nim" name="nim"  required> 
-        </span> <br>
+            <input type="text" id="nim" name="nim"> 
+        </span> 
+        <?php if($errNim) :?><span class="error"><?= $errNim; ?></span><?php endif; ?> <br>
 
-        <label class="asterisk" >Jenis Kelamin: </label> <br>
-        <input type="radio" id="laki" name="jk" value="Laki-Laki" required> 
+        <label class="asterisk" >Jenis Kelamin: </label> 
+        <?php if($errJk) :?><span class="error"><?= $errJk; ?></span><?php endif; ?> <br>
+        
+        <input type="radio" id="laki" name="jk" value="Laki-Laki"> 
         <label for="laki">Laki-Laki </label>  <br>
-        <input type="radio" id="perempuan" name="jk" value="Perempuan" required> 
+        <input type="radio" id="perempuan" name="jk" value="Perempuan"> 
         <label for="perempuan">Perempuan </label> <br>
 
         <button type="submit" name="submit">Submit</button>
     </form>
-
-    <?php 
-        if(isset($_POST['submit'])) {
-
-            echo "<h2>Output: </h2>";
-
-            $arr = [$_POST['nama'], $_POST['nim'], $_POST['jk']];
-
-            foreach($arr as $a) {echo "$a <br>";}
-            
-
-        }
-    ?>
-
+    
+    <?php if(isset($_POST['submit']) && !empty($nama) && !empty($nim) && !empty($jk)) : ?>
+        <h2>Output: </h2>
+        <span><?= $nama; ?></span> <br>
+        <span><?= $nim; ?></span> <br>
+        <span><?= $jk; ?></span>
+    <?php endif; ?>
 </body>
 </html>
