@@ -17,4 +17,7 @@ fun tipCalculator( nilai: Int,  opsi: String, switch: Boolean): Double{
 }
 fun main() {
     println(tipCalculator(52,"Good", true))
+
+    var test = ""
+    print(test.toInt())
 }

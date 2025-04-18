@@ -1,13 +1,27 @@
 <?php 
+session_start();
+$userRole = $_SESSION['role'];
 require 'functions.php';
+// untuk mengambil nama-nama dosen dan matkul
+$dosen = query("SELECT * FROM dosen");
+$matkul = query("SELECT * FROM mata_kuliah");
 
 if(isset($_POST["submit"])) {
   if(insertData($_POST) > 0) {
+    if($userRole == "admin") {
       echo "
           <script>
-              document.location.href = 'main.php'
+              document.location.href = '../admin/dashboard.php'
               alert('Data berhasil ditambahkan');
           </script>";
+    }
+    else{
+      echo "
+      <script>
+          document.location.href = '../user/dashboard.php'
+          alert('Data berhasil ditambahkan');
+      </script>";
+    }
   } 
   else{
       echo "
@@ -29,10 +43,20 @@ if(isset($_POST["submit"])) {
   <form action="" method="POST">
     <!-- Nama Peminjam dan NIM diambil dari sesi login biasanya -->
     <label for="nama_dosen">Nama Dosen:</label><br>
-    <input type="text" id="nama_dosen" name="nama_dosen" required><br><br>
+    <select id="nama_dosen" name="nama_dosen" required>
+      <option value="">-- Pilih Dosen --</option>
+      <?php foreach($dosen as $d):?>
+        <option value="<?= $d['id_dosen']; ?>"><?= $d['nama_dosen']; ?></option>
+      <?php endforeach; ?>
+    </select><br><br>
 
     <label for="nama_matkul">Nama Mata Kuliah:</label><br>
-    <input type="text" id="nama_matkul" name="nama_matkul" required><br><br>
+    <select id="nama_matkul" name="nama_matkul" required>
+      <option value="">-- Pilih Mata Kuliah --</option>
+      <?php foreach($matkul as $m):?>
+        <option value="<?= $m['id_matkul']; ?>"><?= $m['nama_matkul']; ?></option>
+      <?php endforeach; ?>
+    </select><br><br>
 
     <label for="mulai">Tanggal & Jam Mulai:</label><br>
     <input type="datetime-local" id="mulai" name="mulai" required><br><br>

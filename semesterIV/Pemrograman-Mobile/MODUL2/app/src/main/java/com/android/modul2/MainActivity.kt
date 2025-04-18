@@ -1,6 +1,7 @@
 package com.android.modul2
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -9,12 +10,16 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -23,7 +28,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.modul2.ui.theme.Modul2Theme
@@ -51,7 +59,7 @@ fun Display() {
 @Composable
 fun TopBar( ) {
     TopAppBar(
-        title = { Text("Dice Roller") },
+        title = { Text("Tip Time") },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = colorResource(id = R.color.hijau_dark),
             titleContentColor = colorResource(id = R.color.white)
@@ -61,24 +69,30 @@ fun TopBar( ) {
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class) // agar bisa menggunakan topappbar yang bersifat exprerimental
 @Composable
 fun TipCalc(modifier: Modifier = Modifier) {
     var inputNilai by rememberSaveable { mutableStateOf("") }
     var optionSelect by rememberSaveable { mutableStateOf("Amazing") }
     var switchPosition by rememberSaveable { mutableStateOf(true) }
     var hasil by rememberSaveable { mutableStateOf(0.0) }
+    val context = LocalContext.current
+
     Column(
         modifier = modifier
             .background(colorResource(id = R.color.abu))
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()),
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 10.dp)
     ) {
         TextField(
             value = inputNilai,
             onValueChange = {inputNilai = it},
             label = { Text("Cost of Service") },
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         Text("How was the service?")
 
@@ -87,7 +101,7 @@ fun TipCalc(modifier: Modifier = Modifier) {
         ){
             RadioButton(
                 selected = optionSelect == "Amazing",
-                onClick = { optionSelect = "Amazing"}
+                onClick = { optionSelect = "Amazing"},
             )
             Text("Amazing (20%)")
         }
@@ -125,7 +139,10 @@ fun TipCalc(modifier: Modifier = Modifier) {
         }
 
         Button(
-            onClick = { hasil = tipCalculator(inputNilai.toInt(), optionSelect, switchPosition) },
+            onClick = {
+                if(inputNilai.isEmpty()) {inputNilai = "0"; Toast.makeText(context, "Silahkan masukkan angka!", Toast.LENGTH_SHORT).show()}
+                hasil = tipCalculator(inputNilai.toInt(), optionSelect, switchPosition)
+                      },
             modifier = Modifier
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
