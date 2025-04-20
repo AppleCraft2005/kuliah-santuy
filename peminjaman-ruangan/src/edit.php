@@ -11,6 +11,7 @@ require 'functions.php';
 // untuk mengambil nama-nama dosen dan matkul
 $dosen = query("SELECT * FROM dosen");
 $matkul = query("SELECT * FROM mata_kuliah");
+$ruangan = query("SELECT * FROM ruangan");
 
 $idPeminjaman = $_GET['id_peminjaman'];
 $dataPeminjaman = query("SELECT * FROM pinjam_ruang WHERE id_peminjaman = $idPeminjaman")[0];
@@ -53,7 +54,8 @@ if(isset($_POST["submit"])) {
   <form action="" method="POST">
     <!-- agar id_peminjaman dari GET dapat di POST ke fungsi edit -->
     <input type="hidden" name="id_peminjaman" value="<?= $dataPeminjaman['id_peminjaman']; ?>">
-    <!-- Nama Peminjam dan NIM diambil dari sesi login biasanya -->
+
+    <!-- nama dosen -->
     <label for="nama_dosen">Nama Dosen:</label><br>
     <select id="nama_dosen" name="nama_dosen" required>
       <option value="">-- Pilih Dosen --</option>
@@ -62,6 +64,7 @@ if(isset($_POST["submit"])) {
       <?php endforeach; ?>
     </select><br><br>
 
+    <!-- nama matkul -->
     <label for="nama_matkul">Nama Mata Kuliah:</label><br>
     <select id="nama_matkul" name="nama_matkul" required>
       <option value="">-- Pilih Mata Kuliah --</option>
@@ -70,24 +73,40 @@ if(isset($_POST["submit"])) {
       <?php endforeach; ?>
     </select><br><br>
 
+    <!-- waktu mulai dan selesai -->
     <label for="mulai">Tanggal & Jam Mulai:</label><br>
     <input type="datetime-local" id="mulai" name="mulai" required value="<?= $dataPeminjaman['mulai']; ?>"><br><br>
 
     <label for="selesai">Tanggal & Jam Selesai:</label><br>
     <input type="datetime-local" id="selesai" name="selesai" required value="<?= $dataPeminjaman['selesai']; ?>"><br><br>
-
+    
+    <!-- ruangan -->
     <label for="ruangan">Ruangan:</label><br>
     <select id="ruangan" name="ruangan" required>
-      <option value="">-- Pilih Ruangan --</option>
-      <option value="1" <?= ($dataPeminjaman['id_ruangan'] == 1) ? 'selected' : '' ?>>Ruang A13</option>
-      <option value="2" <?= ($dataPeminjaman['id_ruangan'] == 2) ? 'selected' : '' ?>>Ruang A14</option>
-      <option value="3" <?= ($dataPeminjaman['id_ruangan'] == 3) ? 'selected' : '' ?>>Ruang A15</option>
-      <!-- Bisa disesuaikan dari database -->
+      <?php foreach($ruangan as $r):?>
+        <option value="<?= $r['id_ruangan']; ?>"<?= $r['nama_ruang']; ?> <?= ($dataPeminjaman['id_ruangan'] == $r['id_ruangan']) ? 'selected' : '' ?>> <?= $r['nama_ruang']; ?> </option>
+      <?php endforeach; ?>
     </select><br><br>
-
+    
+    <!-- sarana -->
     <label for="sarana">Sarana Tambahan (opsional):</label><br>
     <textarea id="sarana" name="sarana" rows="3" placeholder="Contoh: Proyektor BenQ, Kabel HDMI panjang, Spidol biru"><?= $dataPeminjaman['sarana']; ?></textarea><br><br>
-
+    
+    <!-- mengecek agar hanya tampil saat digunakan admin saja -->
+    <?php if($userRole == "admin"): ?>
+      <!-- status peminjaman -->
+      <label for="status_peminjaman">Status Peminjaman:</label><br>
+      <select id="status_peminjaman" name="status_peminjaman" required>
+        <option value="Menunggu🔄" <?= ($dataPeminjaman['status_peminjaman'] == 'Menunggu🔄') ? 'selected' : '' ?>>Menunggu🔄</option>
+        <option value="Disetujui✅" <?= ($dataPeminjaman['status_peminjaman'] == 'Disetujui✅') ? 'selected' : '' ?>>Disetujui✅</option>
+        <option value="Ditolak❌" <?= ($dataPeminjaman['status_peminjaman'] == 'Ditolak❌') ? 'selected' : '' ?>>Ditolak❌</option>
+      </select><br><br>
+      
+      <!-- komentar -->
+      <label for="komentar">Komentar:</label><br>
+      <textarea id="komentar" name="komentar" rows="3"><?= $dataPeminjaman['komentar']; ?></textarea><br><br>
+      <?php endif; ?>
+      
     <button type="submit" name="submit">Ubah Data</button>
   </form>
 </body>

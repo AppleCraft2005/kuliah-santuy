@@ -22,7 +22,7 @@ function insertData($data) {
     $namaRuang = $data['ruangan'];
     $sarana = $data['sarana'];
 
-    $query = "INSERT INTO pinjam_ruang VALUES('', '$namaPeminjam', '$namaDosen', '$namaMatkul', '$waktuMulai', '$waktuSelesai', '$namaRuang', '$sarana')";
+    $query = "INSERT INTO pinjam_ruang VALUES('', '$namaPeminjam', '$namaDosen', '$namaMatkul', '$waktuMulai', '$waktuSelesai', '$namaRuang', '$sarana', 'Menunggu🔄', '')";
 
     mysqli_query($conn, $query);
 
@@ -46,8 +46,10 @@ function editData($data) {
     $waktuSelesai = $data['selesai'];
     $ruangan = $data['ruangan'];
     $sarana = $data['sarana'];
+    $statusPeminjaman = $data['status_peminjaman'];
+    $komentar = $data['komentar'];
 
-    $query = "UPDATE pinjam_ruang SET nama_dosen = '$namaDosen', nama_matkul = '$namaMatkul', mulai = '$waktuMulai', selesai = '$waktuSelesai', id_ruangan = '$ruangan', sarana = '$sarana' WHERE id_peminjaman = $idPeminjaman";
+    $query = "UPDATE pinjam_ruang SET nama_dosen = '$namaDosen', nama_matkul = '$namaMatkul', mulai = '$waktuMulai', selesai = '$waktuSelesai', id_ruangan = '$ruangan', sarana = '$sarana', status_peminjaman = '$statusPeminjaman', komentar = '$komentar' WHERE id_peminjaman = $idPeminjaman";
 
     mysqli_query($conn, $query);
 

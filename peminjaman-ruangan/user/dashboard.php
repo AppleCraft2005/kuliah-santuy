@@ -38,6 +38,8 @@ $query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = 
             <th>Waktu Selesai</th>
             <th>Ruangan</th>
             <th>Sarana</th>
+            <th>Status Peminjaman</th>
+            <th>Komentar</th>
         </tr>
 
         <?php foreach($query as $q): ?>
@@ -55,6 +57,8 @@ $query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = 
                 <td><?= $q['selesai']; ?></td>
                 <td><?= $q['nama_ruang']; ?></td> <!--dari db ruangan--> 
                 <td><?= $q['sarana']; ?></td>
+                <td><?= $q['status_peminjaman']; ?></td>
+                <td><?= $q['komentar']; ?></td>
             </tr>
         <?php endforeach; ?>
 

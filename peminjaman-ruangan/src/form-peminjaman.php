@@ -5,6 +5,7 @@ require 'functions.php';
 // untuk mengambil nama-nama dosen dan matkul
 $dosen = query("SELECT * FROM dosen");
 $matkul = query("SELECT * FROM mata_kuliah");
+$ruangan = query("SELECT * FROM ruangan");
 
 if(isset($_POST["submit"])) {
   if(insertData($_POST) > 0) {
@@ -67,10 +68,9 @@ if(isset($_POST["submit"])) {
     <label for="ruangan">Ruangan:</label><br>
     <select id="ruangan" name="ruangan" required>
       <option value="">-- Pilih Ruangan --</option>
-      <option value="1">Ruang A13</option>
-      <option value="2">Ruang A14</option>
-      <option value="3">Ruang A15</option>
-      <!-- Bisa disesuaikan dari database -->
+      <?php foreach($ruangan as $r):?>
+        <option value="<?= $r['id_ruangan']; ?>"><?= $r['nama_ruang']; ?></option>
+      <?php endforeach; ?>
     </select><br><br>
 
     <label for="sarana">Sarana Tambahan (opsional):</label><br>
