@@ -1,25 +1,19 @@
 <?php
 $jumlah = 0;
-
     if (isset($_POST['jumlah'])) {
         $jumlah = $_POST['jumlah'];
     }
-
     if (isset($_POST['tambah'])) {
         $jumlah++;
     }
-
     if (isset($_POST['kurang'])) {
         $jumlah--;
         if ($jumlah < 0) $jumlah = 0; 
     }
-
     if (isset($_POST['submit'])) {
         $jumlah_input = $_POST['jumlah_input'];
-        $jumlah = $jumlah_input;
-        
+        $jumlah = $jumlah_input;   
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -47,8 +41,5 @@ $jumlah = 0;
         <button type='submit' name='tambah'>Tambah</button>
         <button type='submit' name='kurang'>Kurang</button>
     </form>
-
-
-
 </body>
 </html>

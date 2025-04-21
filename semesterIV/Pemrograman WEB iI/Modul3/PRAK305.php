@@ -17,13 +17,17 @@
             $panjangStr = strlen($input);
             $pisah = str_split($input);
 
+            echo "<h2>Input: </h2>";
+            echo $_POST['input-str'];
+            echo "<h2>Output: </h2>";
             foreach($pisah as $p) {
                 for($i = 0 ; $i < $panjangStr ; $i++) {
                     if($i == 0) {echo strtoupper($p);}
                     else {echo $p;}
                 }
             }
+
         }
-    ?>
+    ?>    
 </body>
 </html>

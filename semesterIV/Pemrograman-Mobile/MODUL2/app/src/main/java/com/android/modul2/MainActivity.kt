@@ -127,7 +127,6 @@ fun TipCalc(modifier: Modifier = Modifier) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
-//                .background(colorResource(R.color.teal_700)),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -140,7 +139,14 @@ fun TipCalc(modifier: Modifier = Modifier) {
 
         Button(
             onClick = {
-                if(inputNilai.isEmpty()) {inputNilai = "0"; Toast.makeText(context, "Silahkan masukkan angka!", Toast.LENGTH_SHORT).show()}
+                if(inputNilai.isEmpty() || inputNilai == "0") {
+                    Toast.makeText(context, "Silahkan masukkan angka dan bukan nol!", Toast.LENGTH_SHORT).show()
+                    return@Button
+                }
+                if(inputNilai < "0") {
+                    Toast.makeText(context, "jangan masukkan angka negatif!", Toast.LENGTH_SHORT).show()
+                    return@Button
+                }
                 hasil = tipCalculator(inputNilai.toInt(), optionSelect, switchPosition)
                       },
             modifier = Modifier

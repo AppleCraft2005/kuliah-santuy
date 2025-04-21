@@ -1,7 +1,25 @@
 <?php 
 session_start();
 require 'src/functions.php';
-$query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = r.id_ruangan JOIN dosen d ON pr.nama_dosen = d.id_dosen JOIN mata_kuliah m ON pr.nama_matkul = m.id_matkul");
+$ruang = query("SELECT * FROM ruangan");
+
+$where = [];
+if (!empty($_GET['ruangan'])) {
+    $ruangan = $_GET['ruangan'];
+    $where[] = "pr.id_ruangan = '$ruangan'";
+}
+
+if (!empty($_GET['hari'])) {
+    $hari = $_GET['hari']; 
+    $where[] = "DAYNAME(pr.mulai) = '$hari'";
+}
+
+$filterSql = '';
+if (!empty($where)) {
+    $filterSql = 'WHERE ' . implode(' AND ', $where);
+}
+
+$query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = r.id_ruangan JOIN dosen d ON pr.nama_dosen = d.id_dosen JOIN mata_kuliah m ON pr.nama_matkul = m.id_matkul $filterSql");
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +38,8 @@ $query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = 
         <a href="src/form-peminjaman.php">Pinjam Ruang</a>
     <?php endif; ?>
     
+    <?php include 'comp/searchBar.php' ?>
+
     <table border="1" cellpadding="10">
         <tr>
             <th>No.</th>
