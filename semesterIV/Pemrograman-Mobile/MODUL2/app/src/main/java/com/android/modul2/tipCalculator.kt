@@ -1,9 +1,6 @@
 package com.android.modul2
 
-import android.widget.Switch
 import kotlin.math.ceil
-import kotlin.math.round
-
 
 fun tipCalculator( nilai: Int,  opsi: String, switch: Boolean): Double{
     var hasil = 0.0;
@@ -14,10 +11,4 @@ fun tipCalculator( nilai: Int,  opsi: String, switch: Boolean): Double{
     }
     if (switch) {hasil = ceil(hasil) }
     return hasil
-}
-fun main() {
-    println(tipCalculator(52,"Good", true))
-
-    var test = ""
-    print(test.toInt())
 }
