@@ -1,15 +1,34 @@
 <?php 
 $mhs1 = ["No"=>"1", "Nama"=>"Ridho", "Mata Kuliah diambil"=>["Pemrograman I", "Praktikum Pemrograman I", "Pengatar Lingkungan Lahan Basah", "Arsitektur Komputer"], "SKS"=>["2", "1", "2", "3"]];
+$mhs2 = ["No"=>"2", "Nama"=>"Ratna", "Mata Kuliah diambil"=>["Basis Data I", "Praktikum Basis Data I", "Kalkulus"], "SKS"=>["2", "1", "3"]];
+$mhs3 = ["No"=>"3", "Nama"=>"Tono", "Mata Kuliah diambil"=>["Rekayasa Perangkat Lunak", "Analisis Perancangan Sistem", "Komputasi Awan", "Kecerdasan Bisnis"], "SKS"=>["3", "3", "3", "3"]];
+
+$Mahasiswa = [$mhs1,$mhs2,$mhs3];
 
 
+
+foreach($Mahasiswa as $i => $Mhs) {
+    $totalSKS = array_sum($Mhs["SKS"]);
+    $Mahasiswa[$i]["Total SKS"] = $totalSKS;
+    $Mahasiswa[$i]["Keterangan"] = cekKeterangan($totalSKS);
+}
 
 function cekKeterangan($totalSks) {
     if($totalSks > 7) {return "Tidak Revisi";}
-    else{return  "Revisi";}
+    else{return  "Revisi"; }
 }
 
-$jumlahMatkul = count($mhs1["Mata Kuliah diambil"]);
-
+function giveColor($data, $i) {
+    if($i == 0) {
+        if($data > 7) {
+            return "green";
+        }
+        else {
+            return "red";
+        }
+    }
+    var_dump($data);
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,25 +41,24 @@ $jumlahMatkul = count($mhs1["Mata Kuliah diambil"]);
 <body>
     <table border='1' cellpadding='5' cellspacing='0'>
     <tr>
-        <?php foreach($mhs1 as $key => $value) : ?>
+        <?php foreach($Mahasiswa[0] as $key => $value) : ?>
             <th><?= $key; ?></th>
         <?php endforeach; ?>
     </tr>
     
-    <?php foreach($mhs1["Mata Kuliah diambil"] as $i => $matkul) : ?>
-        <tr>
-            <?php if($i == 0) :?>
-                <td rowspan="$jumlahMatkul"><?php $mhs1["No"] ?></td>
-                <td rowspan="$jumlahMatkul"><?php $mhs1["Nama"] ?></td>
-            <?php endif; ?>
-            <td><?= $matkul; ?></td>
-            <td><?= $mhs1["SKS"][$i]; ?></td>
-            <?php if($i == 0) :?>
-                <td rowspan="$jumlahMatkul"><?php $mhs1["Total SKS"] = array_sum($mhs1["SKS"]);?></td>
-                <td rowspan="$jumlahMatkul"><?php $mhs1["Keterangan"] =  cekKeterangan($mhs1["Total SKS"]);?></td>
-            <?php endif; ?>
-        </tr>
+    <?php foreach($Mahasiswa as $mhs) : ?>
+        <?php foreach($mhs["Mata Kuliah diambil"] as $i => $matkul) : ?>
+            <tr>
+                <td><?= $i == 0 ? $mhs["No"] : " " ?></td>
+                <td><?= $i == 0 ? $mhs["Nama"] : " " ?></td>
+                <td><?= $matkul; ?></td>
+                <td><?= $mhs["SKS"][$i] ?></td>
+                <td><?= $i == 0 ? $mhs["Total SKS"] : " " ?></td>
+                <td style="background-color: <?= giveColor($mhs["Total SKS"], $i)?>;"><?= $i == 0 ? $mhs["Keterangan"] : " "?></td>
+            </tr>
+        <?php endforeach; ?>
     <?php endforeach; ?>
+
     </table>
 </body>
 </html>

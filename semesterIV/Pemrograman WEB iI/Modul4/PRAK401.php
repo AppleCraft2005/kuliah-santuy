@@ -29,7 +29,7 @@
             $arrAngka = explode(" ", $nilai);
             $jumlahAngka = count($arrAngka);
             if($jumlahAngka > $batasan) {
-                echo "\nPanjang nilai tidak sesuai dengan ukuran matriks";
+                echo "Panjang nilai tidak sesuai dengan ukuran matriks";
             }
             else {
                 $matrix = array_chunk($arrAngka, $lebar);
@@ -43,8 +43,6 @@
                 }
                 echo "</table>";
             }
-
-
         }
     ?>
 </body>
