@@ -69,6 +69,33 @@ fun Display(navController: NavHostController) {
 }
 
 @Composable
+fun Main(navController: NavController) {
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 6.dp)
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Title("Biodata Mahasiswa")
+        Image(
+            painter = painterResource(id = R.drawable.jovanimg),
+            contentDescription = "",
+            modifier = Modifier
+                .clip(RoundedCornerShape(12.dp))
+                .width(250.dp),
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        biodataList.forEach { item ->
+            DataRow(label = item.label, value = item.value)
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = { navController.navigate("detail") },
+            shape = RoundedCornerShape(6.dp)
+        ) { Text("Detail") }
+    }
+}
+
+@Composable
 fun Detail() {
     Column(
         modifier = Modifier
@@ -109,30 +136,5 @@ fun Detail() {
     }
 }
 
-@Composable
-fun Main(navController: NavController) {
-    Column(
-        modifier = Modifier
-            .padding(horizontal = 6.dp)
-            .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Title("Biodata Mahasiswa")
-        Image(
-            painter = painterResource(id = R.drawable.jovanimg),
-            contentDescription = "",
-            modifier = Modifier
-                .clip(RoundedCornerShape(12.dp))
-                .width(250.dp),
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        biodataList.forEach { item ->
-            DataRow(label = item.label, value = item.value)
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navController.navigate("detail") },
-            shape = RoundedCornerShape(6.dp)
-        ) { Text("Detail") }
-    }
-}
+
 

@@ -9,7 +9,7 @@ data class organizationProp  (
 val organizationList = listOf(
     organizationProp(Img = R.drawable.wrkcysec, judul = "Workshop Cyber Security 2024", tanggal = "19 Juni 2024"),
     organizationProp(Img = R.drawable.wrkiot, judul = "Workshop IOT 2024", tanggal = "31 Agustus 2024"),
-    organizationProp(Img = R.drawable.mubes24, judul = "Musyawarah Besar HMTI 2024", tanggal = "21 - 22 Desember 2024"),
+    organizationProp(Img = R.drawable.rbti25, judul = "Ramadhan Bersama 2024", tanggal = "16 Maret 2024"),
     organizationProp(Img = R.drawable.clsitf, judul = "IT Fest 2024", tanggal = "25 Oktober 2024"),
 )
 
