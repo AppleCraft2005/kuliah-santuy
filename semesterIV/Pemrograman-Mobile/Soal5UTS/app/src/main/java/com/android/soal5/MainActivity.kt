@@ -111,27 +111,12 @@ fun Detail() {
                 .clip(RoundedCornerShape(12.dp))
                 .width(250.dp)
         )
-        Column {
-            BiografiDesc("Nama saya adalah Jovan Gilbert Natamasindah, lahir di Banjarmasin pada tanggal 17 Juni 2005. Saya merupakan anak pertama dari tiga bersaudara. Semenjak masa Pandemi Covid-19, saya memiliki minat yang besar dalam bidang teknologi dan komputer. Ketertarikan ini membawa saya untuk mengulik seputar teknologi terlebih pada bidang Pengembangan Web. setelah lulus dari SMA, saya memutuskan untuk melanjutkan pendidikan di jurusan Teknologi Informasi Fakultas Teknik di Universitas Lambung Mangkurat.")
-            BiografiDesc("Selama menjalani masa perkuliahan, saya aktif mengikuti berbagai kegiatan kampus seperti organisasi mahasiswa yaitu Himpunan Mahasiswa Teknologi Informasi, seminar teknologi, serta beberapa perlombaan pada bidang IT. Salah satu pencapaian yang saya banggakan adalah ketika berhasil menjalankan sebuah workshop Cyber Security pada tahun 2024 silam.")
-            BiografiDesc("Saya dikenal sebagai pribadi yang tekun, disiplin, dan senang belajar hal baru. Di waktu luang, saya suka membaca artikel teknologi, bermain game strategi, dan mengembangkan aplikasi kecil-kecilan untuk menambah keterampilan saya.")
-            BiografiDesc("Kedepannya, saya bercita-cita ingin menjadi seorang Website Developer yang mampu menciptakan sebuah website yang inovatif untuk memecahkan masalah masyarakat melalui teknologi bidang website.")
+        BiografiDescs.forEach { item ->
+            BiografiDesc(item.Desc)
         }
         Title("Kepanitiaan yang Pernah Diikuti")
         organizationList.forEach { item ->
-            Column {
-                Image(
-                    painter = painterResource(id = item.Img),
-                    contentDescription = item.judul,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(item.judul, fontWeight = FontWeight.SemiBold)
-                Text(item.tanggal)
-                Spacer(modifier = Modifier.height(16.dp))
-            }
+            OrganizationStyle(item.Img, item.judul, item.tanggal)
         }
     }
 }

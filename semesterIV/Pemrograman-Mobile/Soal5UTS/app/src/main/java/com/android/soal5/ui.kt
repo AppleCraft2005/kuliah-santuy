@@ -1,5 +1,6 @@
 package com.android.soal5
 
+import android.provider.ContactsContract.CommonDataKinds.Organization
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,23 @@ fun BiografiDesc(desc: String) {
         fontSize = 15.sp,
         textAlign = TextAlign.Justify
     )
+}
+
+@Composable
+fun OrganizationStyle(Img: Int, judul: String, tanggal: String) {
+    Column {
+        Image(
+            painter = painterResource(id = Img),
+            contentDescription = judul,
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(12.dp))
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(judul, fontWeight = FontWeight.SemiBold)
+        Text(tanggal)
+        Spacer(modifier = Modifier.height(16.dp))
+    }
 }
 
 @Composable
