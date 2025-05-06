@@ -12,6 +12,8 @@ if(isset($_POST['tambah'])) {$_SESSION['inputCount']++;}
 
 if(isset($_POST['hapus'])) {$_SESSION['inputCount']--;}
 
+$error = "";
+
 if(isset($_POST['submit'])) {
     $Namalist = $_POST['nama'];
     $Gambarlist = $_FILES['gambar'];
@@ -24,6 +26,14 @@ if(isset($_POST['submit'])) {
         $Nama = $Namalist[$i];
         $Gambar = $Gambarlist['name'][$i];
         $Gambartmp = $Gambarlist['tmp_name'][$i];
+
+        $allowFiles = ['png','jpg','jpeg','gif','webp'];
+        $filePath = strtolower(pathinfo($Gambar, PATHINFO_EXTENSION));
+
+        if(!in_array($filePath, $allowFiles)) {
+            $error = true;
+            continue;
+        }
 
         $folderGambar = "img/". $Gambar;
         move_uploaded_file($Gambartmp, $folderGambar);
@@ -45,6 +55,10 @@ if(isset($_POST['submit'])) {
 <body>
     <h1>Form Dinamis: Nama & Gambar</h1>
 
+    <?php if($error): ?>
+        <p style="color: red;">Hanya file gambar yang diperbolehkan (jpg, jpeg, png, gif, webp).</h2>
+    <?php endif; ?>
+
     <form action="" method="post" enctype="multipart/form-data">
 
         <?php for($i = 0; $i < $_SESSION['inputCount']; $i++): ?>
@@ -56,7 +70,7 @@ if(isset($_POST['submit'])) {
     
             <div>
                 <label for="gambar">Gambar: </label> <br> 
-                <input type="file" id="gambar" name="gambar[]" accept="image/jpg,image/png" required> <br>
+                <input type="file" id="gambar" name="gambar[]" required> <br>
             </div>
             <?php if($_SESSION['inputCount'] > 1): ?>
                 <button name="hapus" formnovalidate>Hapus</button>
@@ -68,7 +82,7 @@ if(isset($_POST['submit'])) {
 
         <button name="tambah" formnovalidate>Tambah input</button> <br> <br>
         <button name="submit">Submit</button> <br><br>
-        <button name="reset" formnovalidate>Reset Data</button>
+        <button name="reset" formnovalidate onclick=" return confirm('Yakin ingin menghapus semua data?')">Reset Data</button>
     </form>
 
     <br>
