@@ -1,9 +1,4 @@
-<?php 
-// require 'Function.php';
-// $Data = getData("SELECT * FROM user")
-session_start();
-
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">

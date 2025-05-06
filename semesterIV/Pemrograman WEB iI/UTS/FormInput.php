@@ -1,12 +1,16 @@
 <?php 
-// require 'Function.php';
-
-// if(isset($_POST['submit'])) {
-//     insertData($_POST);
-// }
 session_start();
 
 if(isset($_POST['reset'])) {session_destroy();}
+
+
+if(!isset($_SESSION['inputCount'])) {
+    $_SESSION['inputCount'] = 1;
+}
+
+if(isset($_POST['tambah'])) {$_SESSION['inputCount']++;}
+
+if(isset($_POST['hapus'])) {$_SESSION['inputCount']--;}
 
 if(isset($_POST['submit'])) {
     $Namalist = $_POST['nama'];
@@ -27,6 +31,7 @@ if(isset($_POST['submit'])) {
         $_SESSION['data'][] = ['Nama' => $Nama, 'Gambar' => $folderGambar];
 
     }
+    $_SESSION['inputCount'] = 1;
 }
 ?>
 
@@ -41,25 +46,33 @@ if(isset($_POST['submit'])) {
     <h1>Form Dinamis: Nama & Gambar</h1>
 
     <form action="" method="post" enctype="multipart/form-data">
+
+        <?php for($i = 0; $i < $_SESSION['inputCount']; $i++): ?>
         <div style="display: flex; gap: 20px;">
             <div>
                 <label for="nama">Nama: </label> <br>
-                <input type="text" id="nama" name="nama[]"> <br>
+                <input type="text" id="nama" name="nama[]" required> <br>
             </div>
     
             <div>
                 <label for="gambar">Gambar: </label> <br> 
-                <input type="file" id="gambar" name="gambar[]" accept="image/jpg,image/png"> <br>
+                <input type="file" id="gambar" name="gambar[]" accept="image/jpg,image/png" required> <br>
             </div>
+            <?php if($_SESSION['inputCount'] > 1): ?>
+                <button name="hapus" formnovalidate>Hapus</button>
+            <?php endif; ?>
         </div>
+        <?php endfor; ?>
 
         <br>
+
+        <button name="tambah" formnovalidate>Tambah input</button> <br> <br>
         <button name="submit">Submit</button> <br><br>
-        <button name="tambah">Tambah input</button> <br> <br>
-        <button name="reset">Reset Data</button>
+        <button name="reset" formnovalidate>Reset Data</button>
     </form>
-    
+
     <br>
+
     <a href="TabelData.php">Lihat Tabel Data</a>
 </body>
 </html>
