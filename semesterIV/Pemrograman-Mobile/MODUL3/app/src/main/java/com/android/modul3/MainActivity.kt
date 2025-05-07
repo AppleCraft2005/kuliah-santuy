@@ -82,34 +82,24 @@ fun Display(navController: NavHostController) {
                 val itemTitle = backStackEntry.arguments?.getString("itemTitle")!!
                 val itemDesc = backStackEntry.arguments?.getString("itemDesc")!!
                 val itemImageURL = backStackEntry.arguments?.getString("itemImageURL")!!
-                DetailPage(itemTitle, itemDesc, itemImageURL)
+                DetailPage(itemTitle, itemDesc, itemImageURL, navController)
             }
         }
     }
 }
 
-//@OptIn(ExperimentalMaterial3Api::class) // agar bisa menggunakan topappbar yang bersifat exprerimental
-//@Composable
-//fun TopBar( ) {
-//    TopAppBar(
-//        title = { Text("Maskapai-Maskapai Penerbangan di Indonesia") },
-//        colors = TopAppBarDefaults.topAppBarColors(
-//            containerColor = colorResource(id = R.color.purple_500),
-//            titleContentColor = colorResource(id = R.color.white)
-//        ),
-//        modifier = Modifier
-//            .statusBarsPadding() // menghilangkan padding otomatis untuk menghindari tabrakan dengan status bar
-//    )
-//}
-val bgcard = Color(0xFF7AE2CF)
-val bgcolor = Color(0xFFF5EEDD)
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun CardList( navController: NavController) {
     val context = LocalContext.current
-
+    val bgcard = Color(0xFF7AE2CF)
+    val bgcolor = Color(0xFFFFFDF6)
     Title("Maskapai-maskapai Penerbangan di Indonesia")
-    LazyColumn(modifier = Modifier.padding(top = 24.dp).background(bgcolor)){
+    LazyColumn(
+        modifier = Modifier
+            .padding(top = 50.dp)
+            .background(bgcolor)
+        ){
         items(cardProperties.size) {index ->
             val property = cardProperties[index]
             Card(
@@ -124,13 +114,10 @@ fun CardList( navController: NavController) {
                         .padding(6.dp),
                 ) {
                     Img(property.ImageURL, 180)
-
                     Column {
                         Title(property.title)
                         Desc(if(property.desc.length > 80) property.desc.take(80) + "..." else property.desc)
-
                         Spacer(modifier = Modifier.weight(1f))
-
                         Row(
                             horizontalArrangement = Arrangement.End,
                             modifier = Modifier
@@ -155,12 +142,13 @@ fun CardList( navController: NavController) {
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun DetailPage(itemTitle: String, itemDesc:String, itemImageURL:String) {
+fun DetailPage(itemTitle: String, itemDesc:String, itemImageURL:String, navController: NavController) {
     val context = LocalContext.current
     val namaMaskapai = detailProperties.find{ it.title == itemTitle}
     Column(modifier = Modifier
             .padding(16.dp)
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Img(itemImageURL, 400)
             Title(itemTitle)
@@ -172,14 +160,17 @@ fun DetailPage(itemTitle: String, itemDesc:String, itemImageURL:String) {
             }
             Spacer(modifier = Modifier.height(16.dp))
             Desc(itemDesc)
-        Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(namaMaskapai?.let {it.website}))
-                context.startActivity(intent)
-            }, modifier = Modifier.padding(horizontal = 6.dp),
-                shape = RoundedCornerShape(8.dp)
-            ) {Text("Web $itemTitle") }
+            Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween) {
+                Button(onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(namaMaskapai?.let {it.website}))
+                    context.startActivity(intent)
+                }, modifier = Modifier.padding(horizontal = 6.dp),
+                    shape = RoundedCornerShape(8.dp)
+                ) {Text("Web $itemTitle") }
+                Button(onClick = {navController.navigate("card_list")}, shape = RoundedCornerShape(8.dp)) {Text("Kembali") }
+            }
         }
     }
 

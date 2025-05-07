@@ -24,13 +24,13 @@ val cardProperties = listOf(
         title = "Citilink",
         desc = "Citilink adalah anak perusahaan dari Garuda Indonesia yang beroperasi sebagai maskapai berbiaya rendah. Didirikan pada tahun 2001, Citilink menawarkan penerbangan domestik dan regional dengan konsep layanan yang modern, dinamis, dan lebih santai untuk menarik kalangan muda dan pelancong bisnis.",
         ImageURL = "https://cdn.plnspttrs.net/42179/pk-gaf-citilink-atr-72-600-72-212a_PlanespottersNet_1657140_83de625cfa_o.jpg",
-        Wiki =" https://id.wikipedia.org/wiki/Lion_Air"
+        Wiki = "https://id.wikipedia.org/wiki/Citilink"
     ),
     cardProperty(
         title = "Super Air Jet",
         desc = "Super Air Jet adalah maskapai baru di Indonesia yang mulai beroperasi pada tahun 2021. Mengusung konsep \"new lifestyle airline\", Super Air Jet fokus melayani segmen anak muda dengan harga terjangkau, desain modern, dan rute-rute domestik populer.",
         ImageURL = "https://cdn.plnspttrs.net/14570/pk-std-super-air-jet-airbus-a320-232-wl_PlanespottersNet_1755960_137445c980_o.jpg",
-        Wiki = "https://id.wikipedia.org/wiki/Citilink"
+        Wiki = "https://www.superairjet.com/en/about.php"
     ),
     cardProperty(
         title = "Batik Air",

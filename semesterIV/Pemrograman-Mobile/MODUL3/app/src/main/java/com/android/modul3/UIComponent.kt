@@ -36,15 +36,16 @@ fun Img(url: String, width: Int) {
         modifier = Modifier
             .width(width.dp)
             .padding(6.dp)
-            .clip(RoundedCornerShape(6.dp))
+            .clip(RoundedCornerShape(6.dp)),
     )
 }
 @Composable
 fun Title(title: String) {
     Text(
         text = title,
+        fontSize = 18.sp,
         textAlign = TextAlign.Center,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.SemiBold,
         modifier = Modifier.fillMaxWidth()
     )
 }
