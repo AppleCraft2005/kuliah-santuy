@@ -1,6 +1,6 @@
 <?php 
 require '../Model.php';
-$query = getData("SELECT * FROM peminjaman");
+$query = getData("SELECT * FROM peminjaman p JOIN member m ON m.id_member = p.nama_member JOIN buku b ON p.judul_buku = b.id_buku");
 
 // untuk hapus member
 if(isset($_GET['id_peminjaman'])) {
@@ -24,6 +24,8 @@ if(isset($_GET['id_peminjaman'])) {
         <tr>
             <th>ID Peminjaman</th>
             <th>Aksi</th>
+            <th>Nama Peminjam</th>
+            <th>Judul Buku</th>
             <th>Tanggal Peminjaman</th>
             <th>Tanggal Pengembalian</th>
         </tr>
@@ -34,6 +36,8 @@ if(isset($_GET['id_peminjaman'])) {
                 <td>
                     <a href="FormPeminjaman.php?id_peminjaman=<?= $q['id_peminjaman'] ?>">Edit</a> | <a href="Peminjaman.php?id_peminjaman=<?= $q['id_peminjaman'] ?>">Hapus</a>
                 </td>
+                <td><?= $q["nama_member"] ?></td>
+                <td><?= $q["judul_buku"] ?></td>
                 <td><?= $q["tgl_pinjam"] ?></td>
                 <td><?= $q["tgl_kembali"] ?></td> 
             </tr>
