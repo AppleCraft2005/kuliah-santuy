@@ -39,6 +39,8 @@ function deleteData($data) {
 }
 function editData($data) {
     global $conn;
+    session_start();
+
     $idPeminjaman = $data['id_peminjaman'];
     $namaDosen = $data['nama_dosen'];
     $namaMatkul = $data['nama_matkul'];
@@ -46,8 +48,15 @@ function editData($data) {
     $waktuSelesai = $data['selesai'];
     $ruangan = $data['ruangan'];
     $sarana = $data['sarana'];
-    $statusPeminjaman = $data['status_peminjaman'];
-    $komentar = $data['komentar'];
+    
+    if($_SESSION['role'] == 'admin') {
+        $statusPeminjaman = $data['status_peminjaman'];
+        $komentar = $data['komentar'];
+    }
+    else {
+        $statusPeminjaman = 'Menunggu🔄';
+        $komentar = '';
+    }
 
     $query = "UPDATE pinjam_ruang SET nama_dosen = '$namaDosen', nama_matkul = '$namaMatkul', mulai = '$waktuMulai', selesai = '$waktuSelesai', id_ruangan = '$ruangan', sarana = '$sarana', status_peminjaman = '$statusPeminjaman', komentar = '$komentar' WHERE id_peminjaman = $idPeminjaman";
 

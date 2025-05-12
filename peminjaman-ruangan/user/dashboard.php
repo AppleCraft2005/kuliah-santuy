@@ -42,7 +42,7 @@ $query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = 
     <?php if(!isset($_SESSION['login'])): ?>
         <a href="../src/login.php">Pinjam Ruang</a>
     <?php else: ?>
-        <a href="../src/form-peminjaman.php">Pinjam Ruang</a>
+        <a href="../src/formpinjamedit.php">Pinjam Ruang</a>
     <?php endif; ?>
 
     <?php include '../comp/searchBar.php' ?>
@@ -67,7 +67,7 @@ $query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = 
                 <td><?= $q['id_peminjaman']; ?></td>
                 <td>
                     <?php if($q['nama_peminjam'] == $usernameLogin): ?>
-                        <a href="../src/edit.php?id_peminjaman=<?=$q['id_peminjaman'];?>">Edit</a> | <a href="../src/hapus.php?id_peminjaman=<?= $q['id_peminjaman'] ?>;" onclick="return confirm('Yakin ingin menghapus peminjaman?')">Hapus</a>
+                        <a href="../src/formpinjamedit.php?id_peminjaman=<?=$q['id_peminjaman'];?>">Edit</a> | <a href="../src/hapus.php?id_peminjaman=<?= $q['id_peminjaman'] ?>;" onclick="return confirm('Yakin ingin menghapus peminjaman?')">Hapus</a>
                     <?php endif; ?>
                 </td>
                 <td><?= $q['nama_peminjam']; ?></td>
