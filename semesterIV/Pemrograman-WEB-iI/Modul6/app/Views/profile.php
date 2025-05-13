@@ -20,24 +20,24 @@
             text-align: center;
             overflow: hidden;
         }
-  </style>
+    </style>
 </head>
 <body>
-<nav class=" navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid container">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="http://localhost:8080/">Home</a>
-            <a class="nav-link" href="http://localhost:8080/profil">Profil</a>
+    <nav class=" navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/">Home</a>
+                    <a class="nav-link" href="http://localhost:8080/home/profil">Profil</a>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
     </nav>
-    
+        
     <div class="container ">
         <h1 class="text-center mb-4">Berikut Profil Lengkap Saya:</h1>
         <div class="card mx-auto shadow " style="max-width: 500px;">
@@ -48,33 +48,27 @@
                 <table cellpadding="5">
                     <tr>
                         <th>Nama Lengkap</th>
-                        <td>: Jovan Gilbert Natamasindah</td>
+                        <td>: <?= $nama; ?></td>
                     </tr>
                     <tr>
                         <th>NIM</th>
-                        <td>: 2310817310002</td>
+                        <td>: <?= $nim; ?></td>
                     </tr>                    
                     <tr>
                         <th>Asal Prodi</th>
-                        <td>: Teknologi Informasi</td>
+                        <td>: <?= $prodi; ?></td>
                     </tr>                    
                     <tr>
                         <th>Hobi</th>
-                        <td>: Badminton, Baca Manga, Main Game</td>
+                        <td>: <?= $hobi; ?></td>
                     </tr>                    
                     <tr>
                         <th>Skill</th>
-                        <td>: Editing Video</td>
+                        <td>: <?= $skill; ?></td>
                     </tr>                    
                 </table>
-                <!-- <p><strong>Nama Lengkap:</strong> <?= $nama; ?></p>
-                <p><strong>NIM:</strong> <?= $nim; ?></p>
-                <p><strong>Asal Prodi:</strong> <?= $prodi; ?></p>
-                <p><strong>Hobi:</strong> <?= $hobi; ?></p>
-                <p><strong>Skill:</strong> <?= $skill; ?></p> -->
             </div>
         </div>
     </div>
-
 </body>
 </html>
