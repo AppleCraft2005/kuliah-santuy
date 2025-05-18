@@ -17,7 +17,6 @@ class Login extends BaseController {
 
         if($user) {
             if($password == $user['password']) {
-                session()->set(['logged_in' => true]);
                 return redirect()->to('/buku');
             }
             else {return redirect()->back()->with('error', 'password yang anda masukkan salah!');}

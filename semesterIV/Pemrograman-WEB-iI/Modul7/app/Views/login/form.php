@@ -2,7 +2,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center ">
             <div class="col-md-4 border py-5">
-                <H1 class="text-center mb-4">LOGIN </H1>
+                <h1 class="text-center mb-4">LOGIN </h1>
                 <?php if(session()->getFlashdata('error')): ?>
                     <h6 class="alert alert-danger"><?= session()->getFlashdata('error'); ?></h6>
                 <?php endif; ?>

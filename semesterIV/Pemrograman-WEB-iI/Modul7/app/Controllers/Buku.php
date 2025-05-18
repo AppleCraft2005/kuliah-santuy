@@ -28,6 +28,43 @@ class Buku extends BaseController {
         return redirect()->to('/buku');
     }
     public function simpan() {
+        $validateRules = [
+            'judul'=>[
+                'rules'=>'required|alpha_space', 
+                'errors'=>[
+                    'required'=>'Judul wajib diisi!',
+                    'alpha_space'=>'Judul harus berupa huruf!'
+                ]
+            ],
+            'penulis'=>[
+                'rules'=>'required|alpha_space', 
+                'errors'=>[
+                    'required'=>'Penulis wajib diisi!',
+                    'alpha_space'=>'Penulis harus berupa huruf!'
+                ]
+            ],
+            'penerbit'=>[
+                'rules'=>'required|alpha_space', 
+                'errors'=>[
+                    'required'=>'Penerbit wajib diisi!',
+                    'alpha_space'=>'Penerbit harus berupa huruf!'
+                ]
+            ],
+            'tahun_terbit'=>[
+                'rules'=>'required|integer|greater_than[1800]|less_than[2024]', 
+                'errors'=>[
+                    'required'=>'Tahun Terbit wajib diisi!',
+                    'integer'=>'Tahun Terbit harus berupa angka!',
+                    'greater_than'=>'Tahun Terbit harus lebih dari 1800!',
+                    'less_than'=>'Tahun Terbit harus kurang dari 2024!',
+                ]
+            ],
+        ];
+
+        if(!$this->validate($validateRules)) {
+            return redirect()->back()->with('validation', $this->validator);
+        }
+
         $bukuModel = new BukuModel();
         $id = $this->request->getPost('id');
         $data = [
