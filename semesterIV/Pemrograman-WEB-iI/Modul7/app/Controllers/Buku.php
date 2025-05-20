@@ -51,11 +51,11 @@ class Buku extends BaseController {
                 ]
             ],
             'tahun_terbit'=>[
-                'rules'=>'required|integer|greater_than[1800]|less_than[2024]', 
+                'rules'=>'required|integer|greater_than[1901]|less_than[2024]', 
                 'errors'=>[
                     'required'=>'Tahun Terbit wajib diisi!',
                     'integer'=>'Tahun Terbit harus berupa angka!',
-                    'greater_than'=>'Tahun Terbit harus lebih dari 1800!',
+                    'greater_than'=>'Tahun Terbit harus lebih dari 1901!',
                     'less_than'=>'Tahun Terbit harus kurang dari 2024!',
                 ]
             ],
