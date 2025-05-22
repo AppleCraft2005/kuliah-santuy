@@ -56,5 +56,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.osmdroid.android.v6120)
+
+//    native OSM
+//    implementation(libs.osmdroid.android.v6120)
+
+//    utsman OSM
+    implementation (libs.osmdroid.android)
+    implementation(libs.osm.android.compose)
 }
