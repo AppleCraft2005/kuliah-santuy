@@ -21,7 +21,8 @@ class Authentication extends BaseController
         if($user) {
             if(password_verify($password, $user['password'])) {
                 session()->set(['username' => $user['username'], 'isLoggedIn' => true]);
-                return redirect()->to('/tes');
+                if($user['role'] == 'admin') return redirect()->to('/dashboard/admin');
+                else {return redirect()->to('/dashboard/user');}
             }
             else {
                 return redirect()->back()->with('error', 'Password yang anda masukkan salah!');
@@ -62,6 +63,10 @@ class Authentication extends BaseController
     
         return redirect()->to('/login')->with('success', "Berhasil Melakukan Register");
         
+    }
+    public function logout() {
+        session()->destroy();
+        return redirect()->to('/');
     }
 
 }

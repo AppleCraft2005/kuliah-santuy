@@ -5,6 +5,6 @@ use App\Models\PeminjamanModel;
 class tes extends BaseController{
     public function index() {
 
-        echo "Selamat berhasil login";
+        return view('tes');
     }
 }

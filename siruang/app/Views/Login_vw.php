@@ -23,11 +23,11 @@
           <form action="/login/auth" method="post">
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" id="username" name="username" class="form-control" placeholder="Masuk username">
+              <input type="text" id="username" name="username" class="form-control" placeholder="Masuk username" required>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" class="form-control" placeholder="Masuk password">
+              <input type="password" id="password" name="password" class="form-control" placeholder="Masuk password" required>
             </div>
             <!-- <a href="#" class="forgot-password">Lupa Password? Reset disini</a> -->
             <button type="submit" class="btn-login">Login</button>
@@ -40,5 +40,9 @@
     <div class="right-background"></div>
   </div>
 </body>
-
+<!-- rekap gawian 25/5/2025 
+ * login regsiter sudah bisa akses database
+ * sudah bisa cegah akses suatu halaman jika belum login melalui URL
+ * validasi login register jalan sebagian
+ * -->
 </html>

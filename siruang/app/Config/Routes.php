@@ -13,5 +13,10 @@ $routes->post('/login/auth', 'Authentication::loginauth');
 $routes->get('/register', 'Authentication::register');
 $routes->post('/register/auth', 'Authentication::registerauth');
 
-$routes->get('/tes', 'tes::index');
+$routes->get('/logout','Authentication::logout');
+
+$routes->get('/dashboard/admin', 'Admin::dashboard', ['filter' => 'auth']);
+$routes->get('/dashboard/user', 'User::dashboard', ['filter' => 'auth']);
+
+$routes->get('/tes', 'tes::index', ['filter' => 'auth']);
 // $routes->get('/ruang', 'Home::listruang');

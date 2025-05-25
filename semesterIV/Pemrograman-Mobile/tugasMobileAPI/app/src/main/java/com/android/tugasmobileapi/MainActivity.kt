@@ -59,30 +59,8 @@ fun MessageScreen() {
             }
         })
     }
-//
-//    var Pesan by remember { mutableStateOf("Loading...") }
-//    val pesanBaru = MessageRequest("Halo adri andorid!")
-//    // Panggil API saat composable pertama kali tampil
-//    LaunchedEffect(Unit) {
-//        RetrofitClient.instance.sendMessage(pesanBaru).enqueue(object : Callback<void> {
-//            override fun onResponse(
-//                call: Call<void>,
-//                response: Response<void>
-//            ) {
-//                Pesan = if (response.isSuccessful) {
-//                    response.body()?.Pesan ?: "No Pesan"
-//                } else {
-//                    "Error: ${response.code()}"
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<void>, t: Throwable) {
-//                Pesan = "Network error: ${t.message}"
-//            }
-//        })
-//    }
 
-    // UI-nya
+    // UI
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
