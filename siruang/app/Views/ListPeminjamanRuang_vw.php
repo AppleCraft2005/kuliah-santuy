@@ -12,8 +12,7 @@
         <header>
             <div class="header-text">
                 <h1>SIRUANG</h1>
-                <h2>SISTEM INFORMASI PEMANTAUAN &</h2>
-                <h2>PEMINJAMAN RUANGAN KELAS</h2>
+                <h2>SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</h2>
             </div>
             <a class="login-btn" href="<?= base_url('/login') ?>">LOGIN</a>
         </header>
@@ -21,14 +20,13 @@
         <main>
             <div class="data-container">
                 <h3>DATA PEMINJAMAN RUANGAN</h3>
-                <div class="search-container">
-                    <input type="text" placeholder="Search" />
-                    <i class="fas fa-search"></i>
-                </div>
+
+                <?= view('components/Searchs', ['ruangan_list' => $ruangan_list, 'search_params' => $search_params, 'base_url_for_search' => '/peminjaman']); ?>
 
                 <table>
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Peminjam</th>
                             <th>Nama Dosen</th>
                             <th>Mata Kuliah</th>
@@ -39,14 +37,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no = 1; ?>
                         <?php foreach($pinjam as $p): ?>
                             <tr>
+                                <td><?= $no++; ?></td>
                                 <td><?= $p['nama_peminjam']; ?></td>
                                 <td><?= $p['nama_dosen']; ?></td>
                                 <td><?= $p['nama_matkul']; ?></td>
-                                <td><?= $p['mulai']; ?></td>
-                                <td><?= $p['selesai']; ?></td>
-                                <td><?= $p['id_ruangan']; ?></td>
+                                <td><?= date('l',strtotime($p['mulai'])).'<br>' . $p['mulai'] ?></td>
+                                <td><?= date("l",strtotime($p['selesai'])). '<br>' . $p['selesai'] ?></td>
+                                <td><?= $p['nama_ruang']; ?></td>
                                 <td><?= $p['status_peminjaman']; ?></td>
                             </tr>
                         <?php endforeach; ?>

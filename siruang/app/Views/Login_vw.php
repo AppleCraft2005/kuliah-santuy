@@ -40,9 +40,4 @@
     <div class="right-background"></div>
   </div>
 </body>
-<!-- rekap gawian 25/5/2025 
- * login regsiter sudah bisa akses database
- * sudah bisa cegah akses suatu halaman jika belum login melalui URL
- * validasi login register jalan sebagian
- * -->
 </html>

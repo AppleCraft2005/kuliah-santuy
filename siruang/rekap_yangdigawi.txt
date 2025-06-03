@@ -1,0 +1,29 @@
+rekap gawian 25/5/2025 
+ * login regsiter sudah bisa akses database
+ * sudah bisa cegah akses suatu halaman jika belum login melalui URL
+ * validasi login register jalan sebagian
+ * menambah validasi hanya terima email ULM
+
+rekap gawian 26/5/2025 
+* berhasil mencegah jika sudah login ke salah satu dashboard, lalu pindah ke dashboard lain menggunakan URL
+* membaiki halaman register agar lebih konsisten dengan halaman login
+
+rekap gawian 29/5/2025 
+* brhasil implemen CRUD di admin
+* hapus edit di admin dah bisa
+* sisah value di halaman edit tidak muncul
+
+rekap gawian 30/5/2025
+* berhasil memuncul value untuk edit
+* berhasil CRUD untuk halaman admin
+* bisa cari ruangan yang ada di daftar peminjaman
+
+rekap gawian 31/5/2025
+* memisah search agar menjadi component sehingga bisa dipakai di banyak view
+* memperbaiki route menuju halaman user
+
+rekap gawian 2/5/2025
+* menambahkan halaman home, masih belum ada jadwalnya
+* menambahkan dashboard user, sudah bisa edit dan hapus untuk user tersebut saja
+* CRUD untuk user dah bisa
+* tapi ketika admin edit permintaan user, nama_peminjamnya keganti

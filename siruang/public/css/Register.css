@@ -2,95 +2,106 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
   height: 100%;
-  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-.container {
+.main-layout {
   display: flex;
   height: 100vh;
   width: 100vw;
 }
 
-.left, .right {
-  width: 50%;
-  height: 100vh;
-}
-
-.left {
+/* KIRI */
+.left-content {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
 }
 
-.form-box {
-  width: 80%;
-  max-width: 400px;
-  padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: #fff;
+.container {
+  max-width: 500px;
+  width: 100%;
 }
 
-.form-box h3 {
+.title {
   text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.form-box h2 {
-  text-align: center;
+  font-size: 18px;
   margin-bottom: 20px;
-  font-size: 20px;
+  color: #333;
 }
 
-.form-box form {
-  display: flex;
-  flex-direction: column;
+.register-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.form-box label {
+.register-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  color: #333;
 }
 
-.form-box input {
-  padding: 10px;
-  margin-bottom: 15px;
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
 }
 
-.form-box button {
-  padding: 10px;
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
   background-color: #007bff;
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 10px;
+  transition: background-color 0.2s ease;
 }
 
-.form-box p {
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.register-text {
   text-align: center;
-  font-size: 13px;
+  margin-top: 15px;
+  font-size: 14px;
 }
 
-.form-box p a {
+.register-link {
   color: #007bff;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
-.right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* KANAN */
+.right-background {
+  flex: 1;
+  background: url('../img/Register.png') no-repeat center center/cover;
 }

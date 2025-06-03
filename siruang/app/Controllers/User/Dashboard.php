@@ -1,9 +1,11 @@
-<?php
-namespace App\Controllers;
+<?php 
+namespace App\Controllers\User;
+
+use App\Controllers\BaseController;
 use App\Models\PeminjamanModel;
 use App\Models\RuangModel;
 
-class Ruang extends BaseController{
+class Dashboard extends BaseController {
     protected $peminjamanModel;
     protected $ruanganModel;
 
@@ -24,6 +26,6 @@ class Ruang extends BaseController{
             'search_params' => ['ruangan' => $searchRuangan]
         ];
 
-        return view('ListPeminjamanRuang_vw', $data);
+        return view('dashboard_user_vw', $data);
     }
 }

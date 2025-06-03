@@ -20,9 +20,13 @@ class Authentication extends BaseController
     
         if($user) {
             if(password_verify($password, $user['password'])) {
-                session()->set(['username' => $user['username'], 'isLoggedIn' => true]);
-                if($user['role'] == 'admin') return redirect()->to('/dashboard/admin');
-                else {return redirect()->to('/dashboard/user');}
+                session()->set([
+                    'username' => $user['username'], 
+                    'isLoggedIn' => true,
+                    'role' => $user['role']
+                ]);
+                if($user['role'] == 'admin') return redirect()->to('/admin/dashboard');
+                else {return redirect()->to('/user/dashboard');}
             }
             else {
                 return redirect()->back()->with('error', 'Password yang anda masukkan salah!');
@@ -43,7 +47,13 @@ class Authentication extends BaseController
             'confirm_password' => [
                 'rules'=>'matches[password]',
                 'errors' =>[
-                    'matches[password]' => 'Konfirmasi password tidak sama dengan password!'
+                    'matches' => 'Konfirmasi password tidak sama dengan password!'
+                ]
+                ],
+            'email' => [
+                'rules'=>'regex_match[/^[\w.+-]+@(mhs\.ulm\.ac\.id|ulm\.ac\.id)$/]',
+                'errors'=>[
+                    'regex_match'=>'Email yang Dimasukkan Bukan Email ULM!'
                 ]
             ]
         ];

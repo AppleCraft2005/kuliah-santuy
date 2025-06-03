@@ -11,7 +11,6 @@ body {
 }
 
 .container {
-    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -20,7 +19,6 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .header-text {
@@ -52,7 +50,9 @@ h2 {
     background-color: white;
     border-radius: 8px;
     padding: 20px;
+    width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
 }
 
 h3 {
@@ -74,13 +74,13 @@ h3 {
     width: 200px;
 }
 
-.search-container i {
+/* .search-container i {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     color: #888;
-}
+} */
 
 table {
     width: 100%;

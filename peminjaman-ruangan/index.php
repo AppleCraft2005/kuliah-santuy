@@ -19,7 +19,7 @@ if (!empty($where)) {
     $filterSql = 'WHERE ' . implode(' AND ', $where);
 }
 
-$query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.id_ruangan = r.id_ruangan JOIN dosen d ON pr.nama_dosen = d.id_dosen JOIN mata_kuliah m ON pr.nama_matkul = m.id_matkul $filterSql");
+$query = query("SELECT * FROM pinjam_ruang pr JOIN ruangan r ON pr.nama_ruang = r.id_ruangan JOIN dosen d ON pr.nama_dosen = d.id_dosen JOIN mata_kuliah m ON pr.nama_matkul = m.id_matkul $filterSql");
 ?>
 
 <!DOCTYPE html>
