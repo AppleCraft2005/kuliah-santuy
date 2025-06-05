@@ -11,10 +11,10 @@
     <div class="container">
         <header>
             <div class="header-text">
-                <h1>SIRUANG</h1>
-                <h2>SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</h2>
+                <h1 class="site-title">SIRUANG</h1>
+                <p class="site-description">SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</p>
             </div>
-            <a class="login-btn" href="<?= base_url('/login') ?>">LOGIN</a>
+            <a href="/login" class="login-button">LOGIN</a>
         </header>
 
         <main>
@@ -22,70 +22,45 @@
                 <h3>DATA PEMINJAMAN RUANGAN</h3>
 
                 <?= view('components/Searchs', ['ruangan_list' => $ruangan_list, 'search_params' => $search_params, 'base_url_for_search' => '/peminjaman']); ?>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Peminjam</th>
-                            <th>Nama Dosen</th>
-                            <th>Mata Kuliah</th>
-                            <th>Waktu Mulai</th>
-                            <th>Waktu Selesai</th>
-                            <th>Ruangan</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no = 1; ?>
-                        <?php foreach($pinjam as $p): ?>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
                             <tr>
-                                <td><?= $no++; ?></td>
-                                <td><?= $p['nama_peminjam']; ?></td>
-                                <td><?= $p['nama_dosen']; ?></td>
-                                <td><?= $p['nama_matkul']; ?></td>
-                                <td><?= date('l',strtotime($p['mulai'])).'<br>' . $p['mulai'] ?></td>
-                                <td><?= date("l",strtotime($p['selesai'])). '<br>' . $p['selesai'] ?></td>
-                                <td><?= $p['nama_ruang']; ?></td>
-                                <td><?= $p['status_peminjaman']; ?></td>
+                                <th>No</th>
+                                <th>Nama Peminjam</th>
+                                <th>Nama Dosen</th>
+                                <th>Mata Kuliah</th>
+                                <th>Waktu Mulai</th>
+                                <th>Waktu Selesai</th>
+                                <th>Ruangan</th>
+                                <th>Status</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1 + ($pager->getCurrentPage('peminjaman_list') - 1) * $pager->getPerPage('peminjaman_list'); ?>
+                            <?php foreach($pinjam as $p): ?>
+                                <tr>
+                                    <td><?= $no++; ?></td>
+                                    <td><?= $p['nama_peminjam']; ?></td>
+                                    <td><?= $p['nama_dosen']; ?></td>
+                                    <td><?= $p['nama_matkul']; ?></td>
+                                    <td><?= date('l',strtotime($p['mulai'])).'<br>' . $p['mulai'] ?></td>
+                                    <td><?= date("l",strtotime($p['selesai'])). '<br>' . $p['selesai'] ?></td>
+                                    <td><?= $p['nama_ruang']; ?></td>
+                                    <td><?= $p['status_peminjaman']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination-link">
+                    <?= $pager->links('peminjaman_list', 'default_full'); ?>
+                </div>
 
-                <!-- <div class="pagination">
-                    <a href="#" class="prev-btn">← Prev 10</a>
-                    <div class="page-numbers">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#" class="active">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <a href="#">11</a>
-                        <span>...</span>
-                        <a href="#">78</a>
-                    </div>
-                    <a href="#" class="next-btn">Next 10 →</a>
-                </div> -->
+                <a href="/" class="back-button">Kembali</a>
             </div>
         </main>
     </div>
-
-    <script>
-        // Untuk efek klik aktif pada pagination (tanpa load ulang)
-        const pageLinks = document.querySelectorAll(".page-numbers a");
-        pageLinks.forEach(link => {
-            link.addEventListener("click", function (e) {
-                e.preventDefault();
-                pageLinks.forEach(l => l.classList.remove("active"));
-                this.classList.add("active");
-            });
-        });
-    </script>
 </body>
 </html>

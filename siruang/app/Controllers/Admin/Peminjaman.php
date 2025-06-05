@@ -53,7 +53,7 @@ class Peminjaman extends BaseController {
         $namaPeminjam = session()->get('username');
 
         $data = [
-            'nama_peminjam' => $namaPeminjam,
+            'nama_peminjam',
             'nama_dosen' => $this->request->getPost('nama_dosen'),
             'nama_matkul' => $this->request->getPost('nama_matkul'),
             'mulai' => $this->request->getPost('mulai'),

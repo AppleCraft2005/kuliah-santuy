@@ -18,7 +18,7 @@ class PeminjamanModel extends Model {
         'komentar',          
     ];
 
-    public function getPeminjamanLengkap() {
+    public function getPeminjamanBaseQuery() {
         return $this->select('pinjam_ruang.*, dosen.nama_dosen, mata_kuliah.nama_matkul, ruangan.nama_ruang')
                     ->join('dosen', 'dosen.id_dosen = pinjam_ruang.nama_dosen')
                     ->join('mata_kuliah','mata_kuliah.id_matkul = pinjam_ruang.nama_matkul')

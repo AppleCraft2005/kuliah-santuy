@@ -14,7 +14,7 @@
                 <h1 class="site-title">SIRUANG</h1>
                 <p class="site-description">SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</p>
             </div>
-            <button class="login-button"><a href="/login">LOGIN</a></button>
+            <a href="/login" class="login-button">LOGIN</a>
         </div>
     </header>
 
@@ -25,9 +25,7 @@
                     <i class="fa-regular fa-calendar"></i>
                     Jadwal Ruangan Kelas
                 </div>
-
             </div>
-
             <div class="schedule-table-container">
                 <table class="schedule-table">
                     <thead>
@@ -48,92 +46,292 @@
                             <th>11:20-12:10</th>
                             <th>12:10-13:00</th>
                             <th>13:00-13:50</th>
-
-
+                            <th>13:50-14:40</th>
+                            <th>14:40-15:30</th>
+                            <th>15:30-16:20</th>
+                            <th>16:20-17:10</th>
+                            <th>17:10-18:00</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tbody>
                             <tr>
                                 <td>Senin</td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keterampilan Komunikasi - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keterampilan Komunikasi - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keterampilan Komunikasi - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>                                    
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Pemrograman Mobile P1 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Pemrograman Mobile P1 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td><div class="schedule-item">ISHOMA</div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Administrasi Sistem dan Jaringan P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Administrasi Sistem dan Jaringan P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Administrasi Sistem dan Jaringan P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Selasa</td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Pemrograman Web II P2 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Pemrograman Web II P2 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Rekayasa Perangkat Lunak P1 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>  
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Rekayasa Perangkat Lunak P1 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Rekayasa Perangkat Lunak P1 - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td><div class="schedule-item">ISHOMA</div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Praktikum Pemrograman Web II P2 - Lab. MTI</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Praktikum Pemrograman Web II P2 - Lab. MTI</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Praktikum Pemrograman Web II P2 - Lab. MTI</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Rabu</td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
+                                <td>                                    
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Pemrograman Mobile P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>                                    
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Pemrograman Mobile P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keamanan Siber P2 - Lab. RPL</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keamanan Siber P2 - Lab. RPL</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keamanan Siber P2 - Lab. RPL</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td><div class="schedule-item">ISHOMA</div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Rekayasa Perangkat Lunak P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Rekayasa Perangkat Lunak P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Rekayasa Perangkat Lunak P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item"></div></td>
                             </tr>
                             <tr>
                                 <td>Kamis</td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Bahasa Indonesia - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Bahasa Indonesia - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Bahasa Indonesia - A14</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td><div class="schedule-item">ISHOMA</div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Administrasi Sistem dan Jaringan P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Administrasi Sistem dan Jaringan P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Administrasi Sistem dan Jaringan P2 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Praktikum Pemrograman Mobile P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Praktikum Pemrograman Mobile P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Praktikum Pemrograman Mobile P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Jumat</td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - A14</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell"></div></td>
-                                <td><div class="empty-cell">
-                                    <p>Keterampilan Komunikasi - Lab. Big Data</p>
-                                    <p>Andrew Stewars, S.Kom</p>
-                                </div></td>
-                                <td><div class="empty-cell"></div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keamanan Siber P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keamanan Siber P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Keamanan Siber P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item"></div></td>
+                                <td><div class="schedule-item">ISHOMA</div></td>
+                                <td><div class="schedule-item">ISHOMA</div></td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Integrasi Sistem P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Integrasi Sistem P2 - Lab. RPL</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Integrasi Sistem P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Integrasi Sistem P2 - Lab. RPL</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Integrasi Sistem P1 - Lab. Big Data</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <p class="Matkul">Integrasi Sistem P2 - Lab. RPL</p>
+                                        <p class="Dosen">Samsul Arif, S.Kom</p>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
-
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -141,41 +339,12 @@
             <div class="card-footer">
                 <div class="status-indicators">
                     <div class="status-item">
-                        <div class="status-dot" style="background-color: #22c55e;"></div>
-                        <span class="status-text">Kelas Kosong</span>
-                    </div>
-                    <div class="status-item">
-                        <div class="status-dot" style="background-color: #3b82f6;"></div>
-                        <span class="status-text">Waktu Tersedia</span>
-                    </div>
-                    <div class="status-item">
-                        <div class="status-dot" style="background-color: #eab308;"></div>
-                        <span class="status-text">Tersedia Hari Jumat</span>
-                    </div>
-                    <div class="status-item">
-                        <div class="status-dot" style="background-color: #ef4444;"></div>
-                        <span class="status-text">Keterangan/Info Ruangan</span>
+                        <span class="status-text" style="color: #ef4444;">* Jadwal Kuliah Bisa Berubah Sewaktu-waktu</span>
                     </div>
                 </div>
-
-                <button class="register-button"><a href="<?= base_url('/peminjaman') ?>">LIHAT DAFTAR PEMINJAMAN</a></button>
+                <a href="<?= base_url('/peminjaman') ?>" class="list-button">LIHAT DAFTAR PEMINJAMAN</a>
             </div>
         </div>
     </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dayButtons = document.querySelectorAll('.day-button');
-            
-            dayButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    dayButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    this.classList.add('active');
-                    
-                });
-            });
-        });
-    </script>
 </body>
 </html>

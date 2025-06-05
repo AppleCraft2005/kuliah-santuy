@@ -27,3 +27,9 @@ rekap gawian 2/5/2025
 * menambahkan dashboard user, sudah bisa edit dan hapus untuk user tersebut saja
 * CRUD untuk user dah bisa
 * tapi ketika admin edit permintaan user, nama_peminjamnya keganti
+
+rekap gawian 5/5/2025
+* menambahkan pagination untuk 3 halaman list peminjaman
+* sudah lebih mendingan untuk responsifnya
+* merapikan css ListPinjamRuang.css
+* merapikan indentasi code di view

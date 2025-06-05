@@ -10,6 +10,8 @@ data class MovieResponse(
 data class Movie(
     val backdrop_path: String?,
     val id: Int,
+    val popularity: Double,
+    val genre_ids: List<Int>,
     val original_language: String,
     val overview: String,
     val poster_path: String?,
