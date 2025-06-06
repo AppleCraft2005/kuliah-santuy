@@ -22,6 +22,5 @@ fun TopBar(Title: String) {
             containerColor = MaterialTheme.colorScheme.primary,
             titleContentColor = MaterialTheme.colorScheme.onPrimary
         )
-
     )
 }

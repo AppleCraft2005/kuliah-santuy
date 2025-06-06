@@ -68,6 +68,18 @@ h2 {
     transition: 0.3s;
 }
 
+.search-btn {
+    background-color:deepskyblue;
+    border-radius: 4px;
+    font-weight:500;
+    border:none;
+    padding: 5px 18px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .logout-button {
     background-color: #8f9396;
     border-radius: 4px;

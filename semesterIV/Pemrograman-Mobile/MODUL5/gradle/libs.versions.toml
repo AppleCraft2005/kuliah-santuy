@@ -11,6 +11,10 @@ activityCompose = "1.10.1"
 composeBom = "2024.09.00"
 navigationCompose = "2.9.0"
 navigationComposeJvmstubs = "2.9.0"
+datastoreCoreAndroid = "1.1.7"
+media3CommonKtx = "1.7.1"
+firebaseCrashlyticsBuildtools = "3.0.3"
+cronetEmbedded = "119.6045.31"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,6 +37,10 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
 retrofit-gson = "com.squareup.retrofit2:converter-gson:2.9.0"
 androidx-navigation-compose-jvmstubs = { group = "androidx.navigation", name = "navigation-compose-jvmstubs", version.ref = "navigationComposeJvmstubs" }
+androidx-datastore-core-android = { group = "androidx.datastore", name = "datastore-core-android", version.ref = "datastoreCoreAndroid" }
+androidx-media3-common-ktx = { group = "androidx.media3", name = "media3-common-ktx", version.ref = "media3CommonKtx" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+cronet-embedded = { group = "org.chromium.net", name = "cronet-embedded", version.ref = "cronetEmbedded" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

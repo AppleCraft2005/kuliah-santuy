@@ -22,7 +22,7 @@ class Dashboard extends BaseController {
 
         $query->orderBy('pinjam_ruang.id_peminjaman', 'DESC');
 
-        $peminjamanData = $query->paginate(5, 'peminjaman_list', $this->request->getVar('page_peminjaman_list'));
+        $peminjamanData = $query->paginate(10, 'peminjaman_list', $this->request->getVar('page_peminjaman_list'));
         $pager = $this->peminjamanModel->pager;
 
         $data = [

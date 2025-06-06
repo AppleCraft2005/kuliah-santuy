@@ -33,3 +33,10 @@ rekap gawian 5/5/2025
 * sudah lebih mendingan untuk responsifnya
 * merapikan css ListPinjamRuang.css
 * merapikan indentasi code di view
+
+rekap gawian 6/5/2025
+* menambahkan API Fontee untuk memberikan konfirmasi ke user mengenai status peminjamannya dari admin
+* memperbaiki masalah nama_peminjam berubah jadi admin saat edit di halaman animation
+* menerapkan esc() untuk pencegaha XSS
+* memberikan warna merah pada validasi login dan register
+* menambahkan notifikasi untuk user dan admin saat menyimpan, memperbarui, dan menghapus data peminjaman

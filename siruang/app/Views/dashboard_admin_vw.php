@@ -23,7 +23,7 @@
                 <a href="<?= base_url('admin/peminjaman') ?>" class="tambah-button">Tambah</a>
 
                 <?= view('components/Searchs', ['ruangan_list' => $ruangan_list, 'search_params' => $search_params, 'base_url_for_search' => 'admin/dashboard']); ?>
-            
+
                 <div class="table-container">
                     <table>
                         <thead>
@@ -48,17 +48,17 @@
                                     <td><?= $no++; ?></td>
                                     <td>
                                         <a href="<?= base_url('admin/peminjaman/edit/'. $p['id_peminjaman']); ?>"><i class="fa-solid fa-pen-to-square"></i></a> |
-                                        <a href="<?= base_url('admin/peminjaman/delete/'. $p['id_peminjaman']); ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="<?= base_url('admin/peminjaman/delete/'. $p['id_peminjaman']); ?>"><i class="fa-solid fa-trash" onclick=" return confirm('Yakin Ingin Menghapus Data Peminjaman Ini?')"></i></a>
                                     </td>
-                                    <td><?= $p['nama_peminjam']; ?></td>
-                                    <td><?= $p['nama_dosen']; ?></td>
-                                    <td><?= $p['nama_matkul']; ?></td>
-                                    <td><?= date('l',strtotime($p['mulai'])).'<br>' . $p['mulai'] ?></td>
-                                    <td><?= date("l",strtotime($p['selesai'])). '<br>' . $p['selesai'] ?></td>
-                                    <td><?= $p['nama_ruang']; ?></td>
-                                    <td><?= $p['sarana']; ?></td>
-                                    <td><?= $p['status_peminjaman']; ?></td>
-                                    <td><?= $p['komentar']; ?></td>
+                                    <td><?= esc($p['nama_peminjam']); ?></td>
+                                    <td><?= esc($p['nama_dosen']); ?></td>
+                                    <td><?= esc($p['nama_matkul']); ?></td>
+                                    <td><?= esc(date('l',strtotime($p['mulai']))).'<br>' . esc($p['mulai']); ?></td>
+                                    <td><?= esc(date("l",strtotime($p['selesai']))). '<br>' . esc($p['selesai']); ?></td>
+                                    <td><?= esc($p['nama_ruang']); ?></td>
+                                    <td><?= esc($p['sarana']); ?></td>
+                                    <td><?= esc($p['status_peminjaman'] );?></td>
+                                    <td><?= esc($p['komentar']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -72,5 +72,10 @@
         </main>
         <a href="<?= base_url('/logout') ?>" class="logout-button">LogOut</a>
     </div>
+    <script>
+        <?php if(session()->getFlashdata('success')): ?>
+            alert('<?= session()->getFlashdata('success'); ?>');
+        <?php endif; ?>
+    </script>
 </body>
 </html>

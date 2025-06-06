@@ -117,6 +117,7 @@
             <?php endif; ?>
 
             <button type="submit" name="submit" class="submit-btn"><?= isset($peminjaman['id_peminjaman']) ? 'Simpan Perubahan' : 'Ajukan Peminjaman' ?></button>
+            <p class="disclaimer"><?= isset($peminjaman['id_peminjaman']) && session()->get('role') == 'admin' ? '*Menekan Simpan Perubahan juga akan mengirimkan konfirmasi ke pengguna melalui Whatsapp' : '' ?></p>
         </form>
       </div>
     </div>

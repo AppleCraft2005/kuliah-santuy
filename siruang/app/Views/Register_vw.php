@@ -14,9 +14,8 @@
                 <div class="register-card">
                     <h2 class="register-title">Register</h2>
                     <?php if(session()->getFlashdata('validation')): ?>
-                      <p><?= session()->getFlashdata('validation')->listErrors(); ?></p>
+                        <?= session()->getFlashdata('validation')->listErrors(); ?>
                     <?php endif; ?> 
-                    <br>
                     <form action="/register/auth" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>

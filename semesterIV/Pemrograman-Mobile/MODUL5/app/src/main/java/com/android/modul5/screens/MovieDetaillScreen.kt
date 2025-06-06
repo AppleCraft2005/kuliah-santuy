@@ -52,7 +52,8 @@ fun MovieDetailScreen(movieId: Int, movieViewModel: MovieViewModel, navControlle
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(15.dp),
+                .padding(15.dp)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             errMsg?.let {msg -> Text(msg) }

@@ -11,14 +11,11 @@
         <div class="left-content">
             <div class="container">
                 <h1 class="title">SIRUANG: SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</h1>
-                <?php if(session()->getFlashdata('error')): ?>
-                    <p><?= session()->getFlashdata('error'); ?></p>
-                <?php endif; ?>
-                <?php if(session()->getFlashdata('success')): ?>
-                    <p><?= session()->getFlashdata('success'); ?></p>
-                <?php endif; ?>
                 <div class="login-card">
                     <h2 class="login-title">Login</h2>
+                    <?php if(session()->getFlashdata('error')): ?>
+                        <p style="color: red;"><?= session()->getFlashdata('error'); ?></p>
+                    <?php endif; ?>
                     <form action="/login/auth" method="post">
                         <div class="form-group">
                         <label for="username">Username</label>

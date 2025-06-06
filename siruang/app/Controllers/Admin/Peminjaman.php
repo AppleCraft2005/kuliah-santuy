@@ -50,10 +50,15 @@ class Peminjaman extends BaseController {
 
     public function save() {
         $idPeminjaman = $this->request->getPost('id_peminjaman');
-        $namaPeminjam = session()->get('username');
+
+        if($idPeminjaman) {
+            $existingName = $this->peminjamanModel->find($idPeminjaman);
+            $namaPeminjam = $existingName['nama_peminjam'];
+        }
+        else {$namaPeminjam = session()->get('username');}
 
         $data = [
-            'nama_peminjam',
+            'nama_peminjam' => $namaPeminjam,
             'nama_dosen' => $this->request->getPost('nama_dosen'),
             'nama_matkul' => $this->request->getPost('nama_matkul'),
             'mulai' => $this->request->getPost('mulai'),
@@ -63,8 +68,23 @@ class Peminjaman extends BaseController {
             'status_peminjaman' => $this->request->getPost('status_peminjaman'),
             'komentar' => $this->request->getPost('komentar'),
         ];
-        if($idPeminjaman) {$this->peminjamanModel->update($idPeminjaman, $data);}
-        else {$this->peminjamanModel->insert($data);}
+
+        if($idPeminjaman) {
+            helper('fonnte');
+            $noWA = '082352043533';
+            $pesan = "Halo " . $data['nama_peminjam']. "\n";
+            $pesan .= "Peminjaman Ruang Kamu dengan Id:" . $idPeminjaman . "\n";
+            $pesan .= "telah " . $data['status_peminjaman'] . "\n";
+            $pesan .= "Dengan Komentar dari admin: " . $data['komentar'];
+            sendWhatsAppFonnte($noWA, $pesan);   
+
+            $this->peminjamanModel->update($idPeminjaman, $data);
+            session()->setFlashdata('success', 'Peminjaman Berhasil Diperbarui.');
+        }
+        else {
+            $this->peminjamanModel->insert($data);
+            session()->setFlashdata('success', 'Peminjaman Berhasil Diajukan.');
+        }
 
         return redirect()->to('/admin/dashboard');
     }

@@ -67,6 +67,13 @@ label {
     color: #333;
 }
 
+.disclaimer {
+    font-size: 12px;
+    font-style: italic;
+    color: #333;
+    margin-top: 10px;
+}
+
 input, textarea, select { 
     width: 100%;
     padding: 10px;

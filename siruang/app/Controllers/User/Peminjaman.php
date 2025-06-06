@@ -62,8 +62,14 @@ class Peminjaman extends BaseController {
             'status_peminjaman' => 'Menunggu🔄',
             'komentar' => '',
         ];
-        if($idPeminjaman) {$this->peminjamanModel->update($idPeminjaman, $data);}
-        else {$this->peminjamanModel->insert($data);}
+        if($idPeminjaman) {
+            $this->peminjamanModel->update($idPeminjaman, $data);
+            session()->setFlashdata('success', 'Peminjaman Berhasil Diperbarui.');
+        }
+        else {
+            $this->peminjamanModel->insert($data);
+            session()->setFlashdata('success', 'Peminjaman Berhasil Diajukan.');
+        }
 
         return redirect()->to('/user/dashboard');
     }

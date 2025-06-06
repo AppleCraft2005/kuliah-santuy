@@ -42,13 +42,13 @@
                             <?php foreach($pinjam as $p): ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $p['nama_peminjam']; ?></td>
-                                    <td><?= $p['nama_dosen']; ?></td>
-                                    <td><?= $p['nama_matkul']; ?></td>
-                                    <td><?= date('l',strtotime($p['mulai'])).'<br>' . $p['mulai'] ?></td>
-                                    <td><?= date("l",strtotime($p['selesai'])). '<br>' . $p['selesai'] ?></td>
-                                    <td><?= $p['nama_ruang']; ?></td>
-                                    <td><?= $p['status_peminjaman']; ?></td>
+                                    <td><?= esc($p['nama_peminjam']); ?></td>
+                                    <td><?= esc($p['nama_dosen']); ?></td>
+                                    <td><?= esc($p['nama_matkul']); ?></td>
+                                    <td><?= esc(date('l',strtotime($p['mulai']))).'<br>' . esc($p['mulai']); ?></td>
+                                    <td><?= esc(date("l",strtotime($p['selesai']))). '<br>' . esc($p['selesai']); ?></td>
+                                    <td><?= esc($p['nama_ruang']); ?></td>
+                                    <td><?= esc($p['status_peminjaman'] );?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
