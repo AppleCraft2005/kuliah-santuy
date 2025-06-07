@@ -44,16 +44,23 @@ class Authentication extends BaseController
 
     public function registerauth() {
         $validateRules = [
+            'username' => [
+                'rules' => 'is_unique[users.username]',
+                'errors' => [
+                    'is_unique' => 'Username sudah digunakan!'
+                ]
+            ],
             'confirm_password' => [
                 'rules'=>'matches[password]',
-                'errors' =>[
+                'errors' => [
                     'matches' => 'Konfirmasi password tidak sama dengan password!'
                 ]
-                ],
+            ],
             'email' => [
-                'rules'=>'regex_match[/^[\w.+-]+@(mhs\.ulm\.ac\.id|ulm\.ac\.id)$/]',
+                'rules'=>'regex_match[/^[\w.+-]+@(mhs\.ulm\.ac\.id|ulm\.ac\.id)$/]|is_unique[users.email]',
                 'errors'=>[
-                    'regex_match'=>'Email yang Dimasukkan Bukan Email ULM!'
+                    'regex_match' => 'Email yang Dimasukkan Bukan Email ULM!',
+                    'is_unique' => 'Email sudah digunakan!'
                 ]
             ]
         ];

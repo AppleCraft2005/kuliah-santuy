@@ -20,7 +20,7 @@
         <main>
             <div class="data-container">
                 <h3>DATA PEMINJAMAN RUANGAN</h3>
-                <a href="<?= base_url('user/peminjaman') ?>" class="tambah-button">Tambah</a>
+                <a href="<?= base_url('user/peminjaman') ?>" class="tambah-button"><i class="fa-solid fa-plus"></i> Tambah</a>
 
                 <?= view('components/Searchs', ['ruangan_list' => $ruangan_list, 'search_params' => $search_params, 'base_url_for_search' => 'user/dashboard']); ?>
 
@@ -42,6 +42,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php if(!empty($pinjam)): ?>
                             <?php $no = 1 + ($pager->getCurrentPage('peminjaman_list') - 1) * $pager->getPerPage('peminjaman_list'); ?>
                             <?php foreach($pinjam as $p): ?>
                                 <tr>
@@ -63,6 +64,11 @@
                                     <td><?= esc($p['komentar']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
+                            <?php else : ?>
+                                <tr>
+                                    <td colspan="11"><p class="empty-notif">Tidak ada data peminjaman yang ditemukan.</p></td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

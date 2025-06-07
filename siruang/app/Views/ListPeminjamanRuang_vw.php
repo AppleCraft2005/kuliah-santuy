@@ -38,6 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php if(!empty($pinjam)): ?>
                             <?php $no = 1 + ($pager->getCurrentPage('peminjaman_list') - 1) * $pager->getPerPage('peminjaman_list'); ?>
                             <?php foreach($pinjam as $p): ?>
                                 <tr>
@@ -51,6 +52,11 @@
                                     <td><?= esc($p['status_peminjaman'] );?></td>
                                 </tr>
                             <?php endforeach; ?>
+                            <?php else : ?>
+                                <tr>
+                                    <td colspan="8"><p class="empty-notif">Tidak ada data peminjaman yang ditemukan.</p></td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

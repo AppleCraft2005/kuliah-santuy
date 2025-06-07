@@ -40,3 +40,8 @@ rekap gawian 6/5/2025
 * menerapkan esc() untuk pencegaha XSS
 * memberikan warna merah pada validasi login dan register
 * menambahkan notifikasi untuk user dan admin saat menyimpan, memperbarui, dan menghapus data peminjaman
+
+rekap gawian 7/5/2025
+* menambahkan search bar tanggal untuk 3 halaman list
+* menambahkan tulisan saat data ruangan tidak ditemukan atau ksong di 3 halaman
+* menambahkan validasi untuk username dan email sudah digunakan pada halaman registe
