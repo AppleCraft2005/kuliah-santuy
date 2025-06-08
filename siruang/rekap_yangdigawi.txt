@@ -45,3 +45,9 @@ rekap gawian 7/5/2025
 * menambahkan search bar tanggal untuk 3 halaman list
 * menambahkan tulisan saat data ruangan tidak ditemukan atau ksong di 3 halaman
 * menambahkan validasi untuk username dan email sudah digunakan pada halaman registe
+
+rekap gawian 8/5/2025
+* menambahkan tulisan saat jadwal kosong
+* memperbaiki penamaan kolom di table
+* menambahkan nomor_telepon di tabel users
+* membuat agar nomor telepon menyesuaikan nama_peminjam yang dipilih

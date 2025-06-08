@@ -48,16 +48,16 @@
                                 <tr>
                                     <td><?= $no++; ?></td>
                                     <td>
-                                        <?php if(session()->get('username') === $p['nama_peminjam']): ?>
+                                        <?php if(session()->get('id_user') === $p['id_pengguna']): ?>
                                             <a href="<?= base_url('user/peminjaman/edit/'. $p['id_peminjaman']); ?>"><i class="fa-solid fa-pen-to-square"></i></a> | 
                                             <a href="<?= base_url('user/peminjaman/delete/'. $p['id_peminjaman']); ?>" onclick=" return confirm('Yakin Ingin Menghapus Data Peminjaman Ini?')"><i class="fa-solid fa-trash"></i></a>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?= esc($p['nama_peminjam']); ?></td>
+                                    <td><?= esc($p['username']); ?></td>
                                     <td><?= esc($p['nama_dosen']); ?></td>
                                     <td><?= esc($p['nama_matkul']); ?></td>
-                                    <td><?= esc(date('l',strtotime($p['mulai']))).'<br>' . esc($p['mulai']); ?></td>
-                                    <td><?= esc(date("l",strtotime($p['selesai']))). '<br>' . esc($p['selesai']); ?></td>
+                                    <td><?= esc(date('l',strtotime($p['waktu_mulai']))).'<br>' . esc($p['waktu_mulai']); ?></td>
+                                    <td><?= esc(date("l",strtotime($p['waktu_selesai']))). '<br>' . esc($p['waktu_selesai']); ?></td>
                                     <td><?= esc($p['nama_ruang']); ?></td>
                                     <td><?= esc($p['sarana']); ?></td>
                                     <td><?= esc($p['status_peminjaman'] );?></td>

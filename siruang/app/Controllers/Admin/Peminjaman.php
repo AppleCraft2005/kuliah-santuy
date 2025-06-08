@@ -6,18 +6,21 @@ use App\Models\DosenModel;
 use App\Models\MatkulModel;
 use App\Models\PeminjamanModel;
 use App\Models\RuangModel;
+use App\Models\UserModel;
 
 class Peminjaman extends BaseController {
     protected $peminjamanModel;
     protected $dosenModel;
     protected $matkulModel;
     protected $ruanganModel;
+    protected $usersModel;
 
     public function __construct() {
         $this->peminjamanModel = new PeminjamanModel();
         $this->dosenModel = new DosenModel();
         $this->matkulModel = new MatkulModel();
-        $this->ruanganModel = new RuangModel();        
+        $this->ruanganModel = new RuangModel();       
+        $this->usersModel = new UserModel(); 
     }
 
     public function index() {
@@ -25,8 +28,10 @@ class Peminjaman extends BaseController {
             'dosen' => $this->dosenModel->findAll(),
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
-            'isAdmin' => true,
+            'users' => $this->usersModel->findAll(),
+            // 'isAdmin' => true,
         ];
+
         return view('formPeminjaman_vw', $data);
     }
 
@@ -36,7 +41,7 @@ class Peminjaman extends BaseController {
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
             'peminjaman' => $this->peminjamanModel->find($id),
-            'isAdmin' => true,
+            // 'isAdmin' => true,
         ];
 
         return view('formPeminjaman_vw',$data);
@@ -53,17 +58,20 @@ class Peminjaman extends BaseController {
 
         if($idPeminjaman) {
             $existingName = $this->peminjamanModel->find($idPeminjaman);
-            $namaPeminjam = $existingName['nama_peminjam'];
+            $idPengguna = $existingName['id_pengguna'];
         }
-        else {$namaPeminjam = session()->get('username');}
+        else {$idPengguna = session()->get('id_user');}
+        
+        $nomorTeleponUser = $this->usersModel->select('nomor_telepon')->where('id_pengguna',$idPengguna)->first();
+        $namaPeminjam = $this->usersModel->select('username')->where('id_pengguna',$idPengguna)->first();
 
         $data = [
-            'nama_peminjam' => $namaPeminjam,
-            'nama_dosen' => $this->request->getPost('nama_dosen'),
-            'nama_matkul' => $this->request->getPost('nama_matkul'),
-            'mulai' => $this->request->getPost('mulai'),
-            'selesai' => $this->request->getPost('selesai'),
-            'nama_ruang' => $this->request->getPost('nama_ruang'),
+            'id_pengguna' => $idPengguna,
+            'id_dosen' => $this->request->getPost('id_dosen'),
+            'id_matkul' => $this->request->getPost('id_matkul'),
+            'waktu_mulai' => $this->request->getPost('waktu_mulai'),
+            'waktu_selesai' => $this->request->getPost('waktu_selesai'),
+            'id_ruangan' => $this->request->getPost('id_ruangan'),
             'sarana' => $this->request->getPost('sarana'),
             'status_peminjaman' => $this->request->getPost('status_peminjaman'),
             'komentar' => $this->request->getPost('komentar'),
@@ -71,12 +79,11 @@ class Peminjaman extends BaseController {
 
         if($idPeminjaman) {
             helper('fonnte');
-            $noWA = '082352043533';
-            $pesan = "Halo " . $data['nama_peminjam']. "\n";
+            $pesan = "Halo " . $namaPeminjam['username']. "\n";
             $pesan .= "Peminjaman Ruang Kamu dengan Id:" . $idPeminjaman . "\n";
             $pesan .= "telah " . $data['status_peminjaman'] . "\n";
             $pesan .= "Dengan Komentar dari admin: " . $data['komentar'];
-            sendWhatsAppFonnte($noWA, $pesan);   
+            sendWhatsAppFonnte($nomorTeleponUser, $pesan);   
 
             $this->peminjamanModel->update($idPeminjaman, $data);
             session()->setFlashdata('success', 'Peminjaman Berhasil Diperbarui.');

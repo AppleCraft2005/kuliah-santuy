@@ -292,6 +292,12 @@ td:has(.ishoma-cell) {
     vertical-align: middle;
 }
 
+.empty-notif {
+    font-size: 1.1em; 
+    color: #555; 
+    text-align:center;
+}
+
 /* @media (max-width: 768px) {
     .card-header {
         flex-direction: column;

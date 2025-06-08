@@ -22,11 +22,12 @@ class Authentication extends BaseController
             if(password_verify($password, $user['password'])) {
                 session()->set([
                     'username' => $user['username'], 
+                    'id_user' => $user['id_pengguna'],
                     'isLoggedIn' => true,
                     'role' => $user['role']
                 ]);
-                if($user['role'] == 'admin') return redirect()->to('/admin/dashboard');
-                else {return redirect()->to('/user/dashboard');}
+                if($user['role'] == 'admin') return redirect()->to('/admin/dashboard')->with('success', 'Anda Berhasil Login!');
+                else {return redirect()->to('/user/dashboard')->with('success', 'Anda Berhasil Login!');}
             }
             else {
                 return redirect()->back()->with('error', 'Password yang anda masukkan salah!');
@@ -72,6 +73,7 @@ class Authentication extends BaseController
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'email' => $this->request->getPost('email'),
+            'nomor_telepon' => $this->request->getPost('nomor_telepon'),
         ];
         
     

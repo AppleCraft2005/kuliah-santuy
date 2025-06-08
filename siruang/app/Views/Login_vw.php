@@ -33,5 +33,10 @@
         </div>
         <div class="right-background"></div>
     </div>
+    <script>
+        <?php if(session()->getFlashdata('success')): ?>
+            alert('<?= session()->getFlashdata('success'); ?>');
+        <?php endif; ?>
+    </script>
 </body>
 </html>

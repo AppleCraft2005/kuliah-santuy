@@ -51,11 +51,11 @@
                                         <a href="<?= base_url('admin/peminjaman/edit/'. $p['id_peminjaman']); ?>"><i class="fa-solid fa-pen-to-square"></i></a> |
                                         <a href="<?= base_url('admin/peminjaman/delete/'. $p['id_peminjaman']); ?>"><i class="fa-solid fa-trash" onclick=" return confirm('Yakin Ingin Menghapus Data Peminjaman Ini?')"></i></a>
                                     </td>
-                                    <td><?= esc($p['nama_peminjam']); ?></td>
+                                    <td><?= esc($p['username']); ?></td>
                                     <td><?= esc($p['nama_dosen']); ?></td>
                                     <td><?= esc($p['nama_matkul']); ?></td>
-                                    <td><?= esc(date('l',strtotime($p['mulai']))).'<br>' . esc($p['mulai']); ?></td>
-                                    <td><?= esc(date("l",strtotime($p['selesai']))). '<br>' . esc($p['selesai']); ?></td>
+                                    <td><?= esc(date('l',strtotime($p['waktu_mulai']))).'<br>' . esc($p['waktu_mulai']); ?></td>
+                                    <td><?= esc(date("l",strtotime($p['waktu_selesai']))). '<br>' . esc($p['waktu_selesai']); ?></td>
                                     <td><?= esc($p['nama_ruang']); ?></td>
                                     <td><?= esc($p['sarana']); ?></td>
                                     <td><?= esc($p['status_peminjaman'] );?></td>

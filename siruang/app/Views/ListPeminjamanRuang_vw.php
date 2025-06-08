@@ -43,11 +43,11 @@
                             <?php foreach($pinjam as $p): ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= esc($p['nama_peminjam']); ?></td>
+                                    <td><?= esc($p['username']); ?></td>
                                     <td><?= esc($p['nama_dosen']); ?></td>
                                     <td><?= esc($p['nama_matkul']); ?></td>
-                                    <td><?= esc(date('l',strtotime($p['mulai']))).'<br>' . esc($p['mulai']); ?></td>
-                                    <td><?= esc(date("l",strtotime($p['selesai']))). '<br>' . esc($p['selesai']); ?></td>
+                                    <td><?= esc(date('l',strtotime($p['waktu_mulai']))).'<br>' . esc($p['waktu_mulai']); ?></td>
+                                    <td><?= esc(date("l",strtotime($p['waktu_selesai']))). '<br>' . esc($p['waktu_selesai']); ?></td>
                                     <td><?= esc($p['nama_ruang']); ?></td>
                                     <td><?= esc($p['status_peminjaman'] );?></td>
                                 </tr>

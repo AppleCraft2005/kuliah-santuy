@@ -25,7 +25,7 @@ class Peminjaman extends BaseController {
             'dosen' => $this->dosenModel->findAll(),
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
-            'isAdmin' => false,
+            // 'isAdmin' => false,
         ];
         return view('formPeminjaman_vw', $data);
     }
@@ -36,7 +36,7 @@ class Peminjaman extends BaseController {
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
             'peminjaman' => $this->peminjamanModel->find($id),
-            'isAdmin' => false,
+            // 'isAdmin' => false,
         ];
 
         return view('formPeminjaman_vw',$data);
@@ -50,14 +50,15 @@ class Peminjaman extends BaseController {
 
     public function save() {
         $idPeminjaman = $this->request->getPost('id_peminjaman');
-        $namaPeminjam = session()->get('username');
+        $idUser = session()->get('id_user');
+
         $data = [
-            'nama_peminjam' => $namaPeminjam,
-            'nama_dosen' => $this->request->getPost('nama_dosen'),
-            'nama_matkul' => $this->request->getPost('nama_matkul'),
-            'mulai' => $this->request->getPost('mulai'),
-            'selesai' => $this->request->getPost('selesai'),
-            'nama_ruang' => $this->request->getPost('nama_ruang'),
+            'id_pengguna' => $idUser,
+            'id_dosen' => $this->request->getPost('id_dosen'),
+            'id_matkul' => $this->request->getPost('id_matkul'),
+            'waktu_mulai' => $this->request->getPost('waktu_mulai'),
+            'waktu_selesai' => $this->request->getPost('waktu_selesai'),
+            'id_ruangan' => $this->request->getPost('id_ruangan'),
             'sarana' => $this->request->getPost('sarana'),
             'status_peminjaman' => 'Menunggu🔄',
             'komentar' => '',

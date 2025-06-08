@@ -19,19 +19,23 @@
                     <form action="/register/auth" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username" name="username" class="form-control" placeholder="Masuk username" required />
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Masukkan username" required />
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Masuk email" required />
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email" required />
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Masuk password" required />
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan password" required />
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm password" required />
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Masukkan Password yang Sama" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="nomor_telepon">Nomor Telepon</label>
+                            <input type="password" id="nomor_telepon" name="nomor_telepon" class="form-control" placeholder="Masukkan Nomor Telepon" required />
                         </div>
                         <button type="submit" class="btn-login" name="submit">Daftar</button>
                     </form>
