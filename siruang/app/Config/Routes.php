@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('/peminjaman','Ruang::index');
+$routes->get('/peminjaman','ListPeminjamanRuang::index');
 
 $routes->get('/login', 'Authentication::login');
 $routes->post('/login/auth', 'Authentication::loginauth');
@@ -32,9 +32,4 @@ $routes->group('user', ['filter' => 'auth'], function($routes) {
     $routes->post('peminjaman/save','User\Peminjaman::save');
 });
 
-// $routes->get('/dashboard/user', 'User\Dashboard::index', ['filter' => 'auth']);
-
-$routes->get('/form','Form::index');
-
 $routes->get('/tes', 'tes::index', ['filter' => 'auth']);
-// $routes->get('/ruang', 'Home::listruang');

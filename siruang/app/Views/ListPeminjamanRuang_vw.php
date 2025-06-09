@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SIRUANG - Sistem Informasi Pemantauan & Peminjaman Ruangan Kelas</title>
+    <title>SIRUANG - Sistem Informasi Pemantauan & Peminjaman Ruangan PSTI</title>
     <link rel="stylesheet" href="<?= base_url('css/ListPinjamRuang.css') ?>" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
@@ -12,9 +12,9 @@
         <header>
             <div class="header-text">
                 <h1 class="site-title">SIRUANG</h1>
-                <p class="site-description">SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</p>
+                <p class="site-description">SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN PSTI</p>
             </div>
-            <a href="/login" class="login-button">LOGIN</a>
+            <a href="<?= $loginbtnurl; ?>" class="login-button"><?= $loginbtntxt ?></a>
         </header>
 
         <main>

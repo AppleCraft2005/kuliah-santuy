@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  list-style:;
 }
 
 ul {
@@ -21,7 +20,7 @@ html, body {
   width: 100vw;
 }
 
-/* KIRI */
+/* bagian kiri */
 .left-content {
   flex: 1;
   background-color: #ffffff;
@@ -105,7 +104,7 @@ html, body {
   text-decoration: none;
 }
 
-/* KANAN */
+/* bagian kanan */
 .right-background {
   flex: 1;
   background: url('../img/Register.png') no-repeat center center/cover;

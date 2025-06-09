@@ -8,10 +8,12 @@ class Authentication extends BaseController
 {
 
     public function login() {
+        // menampilkan halaman login
         return view('Login_vw');
     }
 
     public function loginauth() {
+        // authentikasi login
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
             
@@ -40,10 +42,12 @@ class Authentication extends BaseController
     }
 
     public function register() {
+        // menampilkan halaman register
         return view('Register_vw');
     }
 
     public function registerauth() {
+        // authentikasi register
         $validateRules = [
             'username' => [
                 'rules' => 'is_unique[users.username]',
@@ -58,9 +62,9 @@ class Authentication extends BaseController
                 ]
             ],
             'email' => [
-                'rules'=>'regex_match[/^[\w.+-]+@(mhs\.ulm\.ac\.id|ulm\.ac\.id)$/]|is_unique[users.email]',
+                'rules'=>'regex_match[/^[\w.+-]+@(mhs\.ulm\.ac\.id)$/]|is_unique[users.email]',
                 'errors'=>[
-                    'regex_match' => 'Email yang Dimasukkan Bukan Email ULM!',
+                    'regex_match' => 'Email yang Dimasukkan Bukan Email Mahasiswa ULM!',
                     'is_unique' => 'Email sudah digunakan!'
                 ]
             ]
@@ -84,6 +88,7 @@ class Authentication extends BaseController
         
     }
     public function logout() {
+        // melakukan logout
         session()->destroy();
         return redirect()->to('/');
     }

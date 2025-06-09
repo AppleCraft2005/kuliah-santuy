@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SIRUANG - Sistem Informasi Pemantauan & Peminjaman Ruangan Kelas</title>
+    <title>SIRUANG - Sistem Informasi Pemantauan & Peminjaman Ruangan PSTI</title>
     <link rel="stylesheet" href="<?= base_url('css/Register.css') ?>" />
 </head>
 <body>
     <div class="main-layout">
         <div class="left-content">
             <div class="container">
-                <h1 class="title">SIRUANG: SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</h1>
+                <h1 class="title">SIRUANG: SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN PSTI</h1>
                 <div class="register-card">
                     <h2 class="register-title">Register</h2>
                     <?php if(session()->getFlashdata('validation')): ?>

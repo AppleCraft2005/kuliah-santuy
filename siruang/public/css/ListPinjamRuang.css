@@ -15,6 +15,15 @@ body {
     margin: 0 auto;
 }
 
+input, textarea, select { 
+    padding: 6px;
+    border: none;
+    background-color: #f0f7ff;
+    border-radius: 5px;
+    font-size: 14px;
+    padding-right: 30px; 
+}
+
 /* icon font awesome */
 .fa-pen-to-square {color:goldenrod;}
 .fa-trash {color: red;}

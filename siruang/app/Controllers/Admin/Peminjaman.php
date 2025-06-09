@@ -24,36 +24,38 @@ class Peminjaman extends BaseController {
     }
 
     public function index() {
+        // menampilkan halaman form
         $data = [
             'dosen' => $this->dosenModel->findAll(),
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
             'users' => $this->usersModel->findAll(),
-            // 'isAdmin' => true,
         ];
 
         return view('formPeminjaman_vw', $data);
     }
 
     public function edit($id) {
+        // melakukan edit peminjaman
         $data = [
             'dosen' => $this->dosenModel->findAll(),
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
             'peminjaman' => $this->peminjamanModel->find($id),
-            // 'isAdmin' => true,
         ];
 
         return view('formPeminjaman_vw',$data);
     }
 
     public function delete($id) {
+        // menghapus peminjaman
         $this->peminjamanModel->delete($id);
 
         return redirect()->to('/admin/dashboard');
     }
 
     public function save() {
+        // menyimpan perubahan
         $idPeminjaman = $this->request->getPost('id_peminjaman');
 
         if($idPeminjaman) {
@@ -78,6 +80,7 @@ class Peminjaman extends BaseController {
         ];
 
         if($idPeminjaman) {
+            // API Fonnte
             helper('fonnte');
             $pesan = "Halo " . $namaPeminjam['username']. "\n";
             $pesan .= "Peminjaman Ruang Kamu dengan Id:" . $idPeminjaman . "\n";

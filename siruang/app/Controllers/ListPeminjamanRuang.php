@@ -3,7 +3,7 @@ namespace App\Controllers;
 use App\Models\PeminjamanModel;
 use App\Models\RuangModel;
 
-class Ruang extends BaseController{
+class ListPeminjamanRuang extends BaseController{
     protected $peminjamanModel;
     protected $ruanganModel;
 
@@ -13,6 +13,7 @@ class Ruang extends BaseController{
     }
 
     public function index() {
+        // Search ruangan & tanggal
         $searchRuangan = $this->request->getGet('ruangan');
         $searchTanggal = $this->request->getGet('tanggal');
         $query = $this->peminjamanModel->getPeminjamanBaseQuery();
@@ -27,13 +28,25 @@ class Ruang extends BaseController{
         }
         $query->orderBy('peminjaman_ruang.id_peminjaman', 'DESC');
 
+        // pagination
         $peminjamanData = $query->paginate(10, 'peminjaman_list', $this->request->getVar('page_peminjaman_list'));
         $pager = $this->peminjamanModel->pager;
+
+        // login button dynamic
+        $loginBtnUrl = base_url('/login');
+        $loginBtnTxt = 'LOGIN';
+
+        if(session()->get('isLoggedIn')) {
+            $loginBtnUrl = session()->get('role') == 'admin' ? base_url('/admin/dashboard') : base_url('/user/dashboard');
+            $loginBtnTxt = 'Dashboard';
+        }
 
         $data = [
             'pinjam' => $peminjamanData,
             'pager' => $pager,
             'ruangan_list' => $this->ruanganModel->findAll(),
+            'loginbtnurl' => $loginBtnUrl,
+            'loginbtntxt' => $loginBtnTxt,
             'search_params' => [
                 'ruangan' => $searchRuangan,
                 'tanggal' => $searchTanggal

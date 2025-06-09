@@ -21,34 +21,36 @@ class Peminjaman extends BaseController {
     }
 
     public function index() {
+        // menampilkan halaman form 
         $data = [
             'dosen' => $this->dosenModel->findAll(),
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
-            // 'isAdmin' => false,
         ];
         return view('formPeminjaman_vw', $data);
     }
 
     public function edit($id) {
+        // melakukan edit peminjaman
         $data = [
             'dosen' => $this->dosenModel->findAll(),
             'matkul' => $this->matkulModel->findAll(),
             'ruangan' => $this->ruanganModel->findAll(),
             'peminjaman' => $this->peminjamanModel->find($id),
-            // 'isAdmin' => false,
         ];
 
         return view('formPeminjaman_vw',$data);
     }
 
     public function delete($id) {
+        // menghapus peminjaman
         $this->peminjamanModel->delete($id);
 
         return redirect()->to('/user/dashboard');
     }
 
     public function save() {
+        // menyimpan prubahan yang dilakukan
         $idPeminjaman = $this->request->getPost('id_peminjaman');
         $idUser = session()->get('id_user');
 

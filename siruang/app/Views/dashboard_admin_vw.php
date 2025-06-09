@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SIRUANG - Sistem Informasi Pemantauan & Peminjaman Ruangan Kelas</title>
+    <title>SIRUANG - SISTEM PEMANTAUAN & PEMINJAMAN RUANGAN PSTI</title>
     <link rel="stylesheet" href="<?= base_url('css/ListPinjamRuang.css') ?>" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
@@ -12,7 +12,7 @@
         <header>
             <div class="header-text">
                 <h1>SIRUANG</h1>
-                <h2>SISTEM INFORMASI PEMANTAUAN & PEMINJAMAN RUANGAN KELAS</h2>
+                <h2>SISTEM PEMANTAUAN & PEMINJAMAN RUANGAN PSTI</h2>
             </div>
             <h3>Selamat Datang, <?= session()->get('username'); ?></h3>
         </header>
@@ -20,7 +20,6 @@
         <main>
             <div class="data-container">
                 <h3>DATA PEMINJAMAN RUANGAN</h3>
-                <a href="<?= base_url('admin/peminjaman') ?>" class="tambah-button"><i class="fa-solid fa-plus"></i> Tambah</a>
 
                 <?= view('components/Searchs', ['ruangan_list' => $ruangan_list, 'search_params' => $search_params, 'base_url_for_search' => 'admin/dashboard']); ?>
 
@@ -76,6 +75,7 @@
                 </div>
             </div>
         </main>
+        <a href="<?= base_url("/") ?>" class="back-button">Kembali</a>
         <a href="<?= base_url('/logout') ?>" class="logout-button">LogOut</a>
     </div>
     <script>

@@ -15,6 +15,7 @@ class Dashboard extends BaseController {
     }
 
     public function index() {
+        // search ruangan & tanggal
         $searchRuangan = $this->request->getGet('ruangan');
         $searchTanggal = $this->request->getGet('tanggal');
         $query = $this->peminjamanModel->getPeminjamanBaseQuery();
@@ -28,7 +29,8 @@ class Dashboard extends BaseController {
             $query->where('peminjaman_ruang.waktu_mulai <=', $endOfDay);
         }
         $query->orderBy('peminjaman_ruang.id_peminjaman', 'DESC');
-
+        
+        // pagination
         $peminjamanData = $query->paginate(10, 'peminjaman_list', $this->request->getVar('page_peminjaman_list'));
         $pager = $this->peminjamanModel->pager;
 
