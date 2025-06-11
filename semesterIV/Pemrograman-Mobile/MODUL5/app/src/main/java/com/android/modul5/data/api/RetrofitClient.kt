@@ -1,4 +1,4 @@
-package com.android.modul5.api
+package com.android.modul5.data.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

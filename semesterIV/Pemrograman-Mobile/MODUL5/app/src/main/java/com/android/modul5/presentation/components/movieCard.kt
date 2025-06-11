@@ -18,9 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.android.modul5.domain.model.Movie
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MovieCard(movieItem: Movie, navController: NavController) {
     Card(
@@ -31,10 +29,9 @@ fun MovieCard(movieItem: Movie, navController: NavController) {
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)
         ) {
         Glide(movieItem.posterPath)
-
-        Text(text = movieItem.title, fontWeight = FontWeight.W600, lineHeight = 17.sp, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-        Spacer(modifier = Modifier.height(15.dp))
         Column(modifier =Modifier.padding(horizontal = 8.dp)) {
+            Text(text = movieItem.title, fontWeight = FontWeight.W600, lineHeight = 17.sp, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.height(15.dp))
             Text(text = "Asal Negara: ${movieItem.originalLanguage}", fontSize = 14.sp)
             Text(text = "Tanggal Rilis: ${movieItem.releaseDate}", fontSize = 14.sp)
         }

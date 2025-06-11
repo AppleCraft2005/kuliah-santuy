@@ -1,4 +1,4 @@
-package com.android.modul5.screens
+package com.android.modul5.presentation.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,7 +31,7 @@ import com.android.modul5.presentation.components.Desc
 import com.android.modul5.presentation.components.Glide
 import com.android.modul5.presentation.components.MovieCard
 import com.android.modul5.presentation.components.TopBar
-import com.android.modul5.viewmodel.MovieViewModel
+import com.android.modul5.presentation.viewmodel.MovieViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
@@ -66,17 +66,12 @@ fun MovieDetailScreen(movieId: Int, movieViewModel: MovieViewModel, navControlle
             }
             Spacer(modifier = Modifier.height(10.dp))
             Desc("Tanggal Rilis", movieDetail?.releaseDate)
-//            movieDetail?.genre_ids?.forEach { g ->
-//                Text("hmm: ${g}")
-//            }
-//            Desc("Genre", movieDetail?.genre_ids)
             Desc("Popularitas", movieDetail?.popularity)
             Desc("Rata-rata Vote", movieDetail?.voteAverage)
             Spacer(modifier = Modifier.height(10.dp))
             Text("${movieDetail?.overview}", textAlign = TextAlign.Justify)
             Spacer(modifier = Modifier.height(10.dp))
             ButtonNav("Kembali", navController)
-
         }
     }
 }

@@ -1,0 +1,53 @@
+rekap gawian 25/5/2025 
+ * login regsiter sudah bisa akses database
+ * sudah bisa cegah akses suatu halaman jika belum login melalui URL
+ * validasi login register jalan sebagian
+ * menambah validasi hanya terima email ULM
+
+rekap gawian 26/5/2025 
+* berhasil mencegah jika sudah login ke salah satu dashboard, lalu pindah ke dashboard lain menggunakan URL
+* membaiki halaman register agar lebih konsisten dengan halaman login
+
+rekap gawian 29/5/2025 
+* brhasil implemen CRUD di admin
+* hapus edit di admin dah bisa
+* sisah value di halaman edit tidak muncul
+
+rekap gawian 30/5/2025
+* berhasil memuncul value untuk edit
+* berhasil CRUD untuk halaman admin
+* bisa cari ruangan yang ada di daftar peminjaman
+
+rekap gawian 31/5/2025
+* memisah search agar menjadi component sehingga bisa dipakai di banyak view
+* memperbaiki route menuju halaman user
+
+rekap gawian 2/5/2025
+* menambahkan halaman home, masih belum ada jadwalnya
+* menambahkan dashboard user, sudah bisa edit dan hapus untuk user tersebut saja
+* CRUD untuk user dah bisa
+* tapi ketika admin edit permintaan user, nama_peminjamnya keganti
+
+rekap gawian 5/5/2025
+* menambahkan pagination untuk 3 halaman list peminjaman
+* sudah lebih mendingan untuk responsifnya
+* merapikan css ListPinjamRuang.css
+* merapikan indentasi code di view
+
+rekap gawian 6/5/2025
+* menambahkan API Fontee untuk memberikan konfirmasi ke user mengenai status peminjamannya dari admin
+* memperbaiki masalah nama_peminjam berubah jadi admin saat edit di halaman animation
+* menerapkan esc() untuk pencegaha XSS
+* memberikan warna merah pada validasi login dan register
+* menambahkan notifikasi untuk user dan admin saat menyimpan, memperbarui, dan menghapus data peminjaman
+
+rekap gawian 7/5/2025
+* menambahkan search bar tanggal untuk 3 halaman list
+* menambahkan tulisan saat data ruangan tidak ditemukan atau ksong di 3 halaman
+* menambahkan validasi untuk username dan email sudah digunakan pada halaman registe
+
+rekap gawian 8/5/2025
+* menambahkan tulisan saat jadwal kosong
+* memperbaiki penamaan kolom di table
+* menambahkan nomor_telepon di tabel users
+* membuat agar nomor telepon menyesuaikan nama_peminjam yang dipilih
