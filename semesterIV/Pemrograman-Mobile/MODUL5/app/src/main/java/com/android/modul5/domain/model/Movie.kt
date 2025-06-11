@@ -1,7 +1,9 @@
 package com.android.modul5.domain.model
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class MovieResponse(
     val page: Int,
     val results: List<Movie>,
@@ -9,17 +11,18 @@ data class MovieResponse(
     val total_results: Int
 )
 
+@Serializable
 data class Movie(
     val id: Int,
     val popularity: Double,
-    @SerializedName("original_language")
+    @SerialName("original_language")
     val originalLanguage: String,
     val overview: String,
-    @SerializedName("poster_path")
+    @SerialName("poster_path")
     val posterPath: String?,
-    @SerializedName("release_date")
+    @SerialName("release_date")
     val releaseDate: String,
     val title: String,
-    @SerializedName("vote_average")
+    @SerialName("vote_average")
     val voteAverage: Double,
 )
