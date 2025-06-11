@@ -26,11 +26,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.android.modul5.components.ButtonNav
-import com.android.modul5.components.Desc
-import com.android.modul5.components.Image
-import com.android.modul5.components.MovieCard
-import com.android.modul5.components.TopBar
+import com.android.modul5.presentation.components.ButtonNav
+import com.android.modul5.presentation.components.Desc
+import com.android.modul5.presentation.components.Glide
+import com.android.modul5.presentation.components.MovieCard
+import com.android.modul5.presentation.components.TopBar
 import com.android.modul5.viewmodel.MovieViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
@@ -62,16 +62,16 @@ fun MovieDetailScreen(movieId: Int, movieViewModel: MovieViewModel, navControlle
                     .width(780.dp)
                     .height(300.dp)
             ) {
-                Image(movieDetail?.poster_path)
+                Glide(movieDetail?.posterPath)
             }
             Spacer(modifier = Modifier.height(10.dp))
-            Desc("Tanggal Rilis", movieDetail?.release_date)
-            movieDetail?.genre_ids?.forEach { g ->
-                Text("hmm: ${g}")
-            }
-            Desc("Genre", movieDetail?.genre_ids)
+            Desc("Tanggal Rilis", movieDetail?.releaseDate)
+//            movieDetail?.genre_ids?.forEach { g ->
+//                Text("hmm: ${g}")
+//            }
+//            Desc("Genre", movieDetail?.genre_ids)
             Desc("Popularitas", movieDetail?.popularity)
-            Desc("Rata-rata Vote", movieDetail?.vote_average)
+            Desc("Rata-rata Vote", movieDetail?.voteAverage)
             Spacer(modifier = Modifier.height(10.dp))
             Text("${movieDetail?.overview}", textAlign = TextAlign.Justify)
             Spacer(modifier = Modifier.height(10.dp))

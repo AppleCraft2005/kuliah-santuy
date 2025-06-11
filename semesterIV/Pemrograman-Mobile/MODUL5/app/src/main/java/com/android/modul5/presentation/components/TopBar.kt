@@ -1,4 +1,4 @@
-package com.android.modul5.components
+package com.android.modul5.presentation.components
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -20,7 +20,7 @@ fun TopBar(Title: String) {
             ) },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary
+            titleContentColor = MaterialTheme.colorScheme.tertiary
         )
     )
 }

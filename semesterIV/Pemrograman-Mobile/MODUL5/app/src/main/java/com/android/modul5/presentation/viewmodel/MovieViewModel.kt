@@ -1,10 +1,9 @@
 package com.android.modul5.viewmodel
 
-import androidx.compose.material3.Text
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.modul5.api.RetrofitClient
-import com.android.modul5.data.Movie
+import com.android.modul5.data.api.RetrofitClient
+import com.android.modul5.domain.model.Movie
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

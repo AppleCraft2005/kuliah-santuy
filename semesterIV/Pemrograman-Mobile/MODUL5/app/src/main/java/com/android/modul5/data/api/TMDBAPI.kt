@@ -1,6 +1,6 @@
 package com.android.modul5.api
-import com.android.modul5.data.Movie
-import com.android.modul5.data.MovieResponse
+import com.android.modul5.domain.model.Movie
+import com.android.modul5.domain.model.MovieResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -1,4 +1,4 @@
-package com.android.modul5.components
+package com.android.modul5.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,7 +24,7 @@ fun ButtonNav(action: String, navController: NavController, movieId: Int = 0) {
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.width(100.dp).height(35.dp)
         ) {
-            Text(action)
+            Text(action, color = MaterialTheme.colorScheme.tertiary)
         }
     }
 

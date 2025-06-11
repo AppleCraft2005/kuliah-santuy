@@ -1,4 +1,4 @@
-package com.android.modul5.components
+package com.android.modul5.presentation.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth

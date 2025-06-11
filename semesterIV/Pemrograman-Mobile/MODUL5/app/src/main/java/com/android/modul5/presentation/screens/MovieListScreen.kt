@@ -26,24 +26,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.android.modul5.components.MovieCard
-import com.android.modul5.components.TopBar
+import com.android.modul5.presentation.components.MovieCard
+import com.android.modul5.presentation.components.TopBar
 import com.android.modul5.viewmodel.MovieViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.core.content.edit
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.media3.common.util.Log
-import com.android.modul5.components.DarkModeSwitch
+import com.android.modul5.presentation.components.DarkModeSwitch
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun displayMovies(movieViewModel: MovieViewModel, navController: NavController) {
+fun MovieListScreen(movieViewModel: MovieViewModel, navController: NavController, isDarkMode: Boolean, onToggle: (Boolean) -> Unit) {
     val Movies by movieViewModel.Movies.collectAsState()
     val errMsg by movieViewModel.errorMsg.collectAsState()
 
     Scaffold(
-        topBar = {TopBar("SIMOVIE")}
+        topBar = { TopBar("SIMOVIE") }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -51,7 +52,8 @@ fun displayMovies(movieViewModel: MovieViewModel, navController: NavController) 
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState()),
         ) {
-            DarkModeSwitch()
+            DarkModeSwitch(isDarkMode = isDarkMode, onToggle = onToggle)
+
             errMsg?.let {msg -> Text(msg) }
             FlowRow(
                 modifier = Modifier

@@ -1,4 +1,4 @@
-package com.android.modul5.ui.theme
+package com.android.modul5.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -15,14 +15,15 @@ import androidx.compose.ui.platform.LocalContext
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
-    tertiary = Pink80,
-    background = Color.Black
-)
+    tertiary = Color.White,
+    background = Color(0xFF181C14),
+    )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40
+    tertiary = Color.White,
+    background = lightModeBg
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
