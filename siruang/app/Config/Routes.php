@@ -14,6 +14,12 @@ $routes->post('/login/auth', 'Authentication::loginauth');
 $routes->get('/register', 'Authentication::register');
 $routes->post('/register/auth', 'Authentication::registerauth');
 
+$routes->get('forgot-pwd', 'Authentication::forgotPwdForm', ['as' => 'forgot-pwd']);
+$routes->post('forgot-pwd', 'Authentication::sendResetLink');
+
+$routes->get('reset-pwd', 'Authentication::resetPwdForm', ['as' => 'reset-pwd']);
+$routes->post('reset-pwd', 'Authentication::updatePwd');
+
 $routes->get('/logout','Authentication::logout');
 
 $routes->group('admin', ['filter' => 'auth'], function($routes) {
