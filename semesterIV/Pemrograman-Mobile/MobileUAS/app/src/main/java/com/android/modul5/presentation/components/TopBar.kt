@@ -25,7 +25,7 @@ fun TopBar(Title: String) {
                 Title,
                 fontWeight = FontWeight.Bold,
             ) },
-        modifier = Modifier.height(90.dp),
+        modifier = Modifier.height(75.dp),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
             titleContentColor = MaterialTheme.colorScheme.tertiary

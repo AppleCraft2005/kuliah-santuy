@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -24,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.android.modul5.presentation.components.MovieCard
 import com.android.modul5.presentation.components.TopBar
@@ -44,7 +46,15 @@ fun MovieListScreen(movieViewModel: MovieViewModel, navController: NavController
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Title("Popular Films")
-        errMsg?.let {msg -> Text(msg) }
+        if (errMsg != null) {
+            errMsg?.let {msg -> Text(msg) }
+            Button(
+                onClick = { movieViewModel.fetchMovies() }
+            ) {
+                Text("Retry")
+            }
+
+        }
         if (isLoading) {
             CircularProgressIndicator(modifier = Modifier.padding(16.dp))
         }

@@ -17,12 +17,14 @@ import androidx.navigation.navArgument
 import com.android.modul5.presentation.components.BottomNavigationBar
 import com.android.modul5.presentation.components.TopBar
 import com.android.modul5.presentation.navigation.BottomNavigationItem
+import com.android.modul5.presentation.viewmodel.MovieDetailViewModel
 import com.android.modul5.presentation.viewmodel.MovieViewModel
 
 @Composable
 fun NavMovies(isDarkMode: Boolean, onToggle: (Boolean) -> Unit) {
     val navController = rememberNavController()
     val movieViewModel: MovieViewModel = viewModel()
+    val movieDetailViewModel: MovieDetailViewModel = viewModel()
     val navItems = listOf(
         BottomNavigationItem.Home,
         BottomNavigationItem.Search,
@@ -66,7 +68,7 @@ fun NavMovies(isDarkMode: Boolean, onToggle: (Boolean) -> Unit) {
             ) { backStackEntry ->
                 val movieId = backStackEntry.arguments?.getInt("movieId")
                 if (movieId != null) {
-                    MovieDetailScreen(movieId, movieViewModel, navController)
+                    MovieDetailScreen(movieId, movieDetailViewModel, navController)
                 }
                 else {
                     Text("Film tidak ditemukan!")

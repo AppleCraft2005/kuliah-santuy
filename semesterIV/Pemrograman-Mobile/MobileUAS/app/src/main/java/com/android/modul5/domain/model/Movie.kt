@@ -15,7 +15,7 @@ data class MovieResponse(
 @Serializable
 data class Movie(
     val id: Int,
-    val popularity: Double,
+    val popularity: Double = 0.0,
     @SerialName("original_language")
     val originalLanguage: String,
 //    @SerialName("origin_country")
@@ -28,10 +28,10 @@ data class Movie(
 //    @SerialName("backdrop_path")
 //    val backdropPath: String,
     @SerialName("release_date")
-    val releaseDate: String,
+    val releaseDate: String = "-",
     val title: String,
     @SerialName("vote_average")
-    val voteAverage: Double,
+    val voteAverage: Double = 0.0,
 //    @SerialName("runtime")
 //    val runtime: Int,
 //    val status: String,
@@ -58,10 +58,10 @@ data class MovieDetail(
     val title: String,
     @SerialName("vote_average")
     val voteAverage: Double,
-//    @SerialName("runtime")
-//    val runtime: Int,
-//    val status: String,
-//    val tagline: String
+    @SerialName("runtime")
+    val runtime: Int,
+    val status: String,
+    val tagline: String
 )
 
 @Serializable
@@ -69,5 +69,3 @@ data class Genre(
     val id: Int,
     val name: String,
 )
-
-// berhubung ni crash kemungkinan karena di list movie ada tapi pas di serach kdd begitupun sebliknya, esok coba pisah data classnya

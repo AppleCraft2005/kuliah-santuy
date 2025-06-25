@@ -33,20 +33,22 @@ import com.android.modul5.presentation.components.Glide
 import com.android.modul5.presentation.components.MovieCard
 import com.android.modul5.presentation.components.Title
 import com.android.modul5.presentation.components.TopBar
+import com.android.modul5.presentation.viewmodel.MovieDetailViewModel
 import com.android.modul5.presentation.viewmodel.MovieViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun MovieDetailScreen(movieId: Int, movieViewModel: MovieViewModel, navController: NavController) {
-    val movieDetail by movieViewModel.selectedMovieDetail.collectAsState()
-    val errMsg by movieViewModel.errorMsg.collectAsState()
-    val isLoading by movieViewModel.isLoading.collectAsState()
+fun MovieDetailScreen(movieId: Int, movieDetalViewModel: MovieDetailViewModel, navController: NavController) {
+    val movieDetail by movieDetalViewModel.selectedMovieDetail.collectAsState()
+    val errMsg by movieDetalViewModel.errorMsg.collectAsState()
+    val isLoading by movieDetalViewModel.isLoading.collectAsState()
     val genreList = movieDetail?.genre
     val genreNames = genreList?.map { it.name }?.joinToString(", ")
+
     LaunchedEffect(movieId) {
-        movieViewModel.fetchMoviebyDetailbyID(movieId)
+        movieDetalViewModel.fetchMoviebyDetailbyID(movieId)
     }
 
     Column(
@@ -68,6 +70,8 @@ fun MovieDetailScreen(movieId: Int, movieViewModel: MovieViewModel, navControlle
             Desc("Genre",genreNames )
             Desc("Tanggal Rilis", movieDetail?.releaseDate)
             Desc("Negara Asal", movieDetail?.originCountry)
+            Desc("Durasi"," ${ movieDetail?.runtime } menit")
+            Desc("Status", movieDetail?.status)
             Desc("Popularitas", movieDetail?.popularity)
             Desc("Rata-rata Vote", movieDetail?.voteAverage)
             Spacer(modifier = Modifier.height(10.dp))

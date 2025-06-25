@@ -11,15 +11,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import java.io.IOException
 
 class MovieViewModel: ViewModel() {
     private val API_KEY = "9d2494a8a2a5c08592c8e963a74c799a"
 
     private val _Movies = MutableStateFlow<List<Movie>>(emptyList())
     val Movies: StateFlow<List<Movie>> = _Movies
-
-    private val _selectedMovieDetail = MutableStateFlow<MovieDetail?>(null)
-    val selectedMovieDetail: StateFlow<MovieDetail?> = _selectedMovieDetail
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
@@ -35,8 +33,8 @@ class MovieViewModel: ViewModel() {
         viewModelScope.launch {
             _isLoading.value = true
             _errorMsg.value = null
-            val Response = RetrofitClient.tmdbAPI.getPopularMovies(API_KEY)
             try {
+                val Response = RetrofitClient.tmdbAPI.getPopularMovies(API_KEY)
                 if (Response.isSuccessful) {
                     Response.body()?.let {
                         _Movies.value = it.results
@@ -47,30 +45,8 @@ class MovieViewModel: ViewModel() {
                     _errorMsg.value = "Error in movie List= ${Response.code()} - ${Response.message()}"
                 }
             }
-            catch (err: Exception) {
-                _errorMsg.value = "Exception: ${err.localizedMessage} ?: Unknown error"
-            }
-            finally {
-                _isLoading.value = false
-            }
-        }
-    }
-
-    fun fetchMoviebyDetailbyID(movieId: Int) {
-        viewModelScope.launch {
-            _errorMsg.value = null
-            _isLoading.value = true
-            val responseDetail = RetrofitClient.tmdbAPI.getMovieDetailbyID(movieId,API_KEY)
-            try {
-                if (responseDetail.isSuccessful) {
-                   val movieDetail =   responseDetail.body()
-                    _selectedMovieDetail.value = movieDetail
-
-                    Log.d("Movie Detail", Json.encodeToString(movieDetail))
-                }
-                else {
-                    _errorMsg.value = "Error in movie detail = ${responseDetail.code()} - ${responseDetail.message()}"
-                }
+            catch (err: IOException) {
+                _errorMsg.value = "No Internet Connection"
             }
             catch (err: Exception) {
                 _errorMsg.value = "Exception: ${err.localizedMessage} ?: Unknown error"

@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import java.io.IOException
 
 class MovieSearchViewModel : ViewModel() {
     private val API_KEY = "9d2494a8a2a5c08592c8e963a74c799a"
@@ -67,8 +68,8 @@ class MovieSearchViewModel : ViewModel() {
         viewModelScope.launch {
             _isLoading.value = true
             _errMsg.value = null
-            val response = RetrofitClient.tmdbAPI.getMoviesbySearch(apikey = API_KEY, query = query)
             try {
+                val response = RetrofitClient.tmdbAPI.getMoviesbySearch(apikey = API_KEY, query = query)
                 if (response.isSuccessful) {
                    val Movie =  response.body()?.results ?: emptyList()
                     _searchResults.value = Movie
@@ -78,6 +79,9 @@ class MovieSearchViewModel : ViewModel() {
                 else {
                     _errMsg.value = "Error searching movies: ${response.code()} - ${response.message()}"
                 }
+            }
+            catch (err: IOException) {
+                _errMsg.value = "No Internet Connection"
             }
             catch (err: Exception) {
                 _errMsg.value = "Exception searching movies: ${err.localizedMessage ?: "Unknown error"}"
