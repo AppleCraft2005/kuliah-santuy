@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("hola")
+    @GET("manhwagege/grzz")
     fun getMessage(): Call<MessageResponse>
 
 }

@@ -80,7 +80,7 @@
                         <span class="status-text" style="color: #ef4444;">* Jadwal Kuliah Bisa Berubah Sewaktu-waktu</span>
                     </div>
                 </div>
-                <a href="<?= base_url('/peminjaman') ?>" class="list-button">LIHAT DAFTAR PEMINJAMAN</a>
+                <a href="<?= route_to('peminjaman') ?>" class="list-button">LIHAT DAFTAR PEMINJAMAN</a>
             </div>
         </div>
     </main>

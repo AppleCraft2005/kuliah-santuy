@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
 }
 
 html, body {
@@ -19,7 +20,7 @@ html, body {
 /* Bagian Kiri */
 .left-content {
   flex: 1;
-  background-color: #ffffff;
+  background-color: #B3E5FC;
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -74,6 +75,7 @@ html, body {
 .btn-login {
   width: 100%;
   padding: 12px;
+  margin-top: 10px;
   font-size: 16px;
   background-color: #007bff;
   color: white;
@@ -88,6 +90,18 @@ html, body {
   background-color: #0056b3;
 }
 
+.btn-fg-pwd a,
+.btn-home a{
+    color:#007bff;
+    font-size: 14px;
+}
+
+.btn-home {
+  margin-top: 5px;
+  text-align: center;
+}
+
+
 .register-text {
   text-align: center;
   margin-top: 15px;
@@ -97,7 +111,6 @@ html, body {
 .register-link {
   color: #007bff;
   font-weight: bold;
-  text-decoration: none;
 }
 
 /* Bagian Kanan */

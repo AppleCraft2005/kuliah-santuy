@@ -13,7 +13,12 @@ interface TMDBAPI {
         @Query("api_key") apikey: String,
         @Query("with_original_language") lang: String = "id",
         @Query("with_genres") genre: Int = 35,
-        @Query("page") page: Int = 1,
+    ) : Response<MovieResponse>
+
+    @GET("search/movie")
+    suspend fun getMoviesbySearch(
+        @Query("api_key") apikey: String,
+        @Query("query") query: String = "naruto",
     ) : Response<MovieResponse>
 
     @GET("movie/{movie_id}")

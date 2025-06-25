@@ -33,11 +33,11 @@ class ListPeminjamanRuang extends BaseController{
         $pager = $this->peminjamanModel->pager;
 
         // login button dynamic
-        $loginBtnUrl = base_url('/login');
+        $loginBtnUrl = route_to('login');
         $loginBtnTxt = 'LOGIN';
 
         if(session()->get('isLoggedIn')) {
-            $loginBtnUrl = session()->get('role') == 'admin' ? base_url('/admin/dashboard') : base_url('/user/dashboard');
+            $loginBtnUrl = session()->get('role') == 'admin' ? route_to('admin_dashboard') : route_to('user_dashboard');
             $loginBtnTxt = 'Dashboard';
         }
 
@@ -52,6 +52,6 @@ class ListPeminjamanRuang extends BaseController{
                 'tanggal' => $searchTanggal
                 ]
         ];
-        return view('ListPeminjamanRuang_vw', $data);
+        return view('list/list_peminjaman_ruang_vw', $data);
     }
 }

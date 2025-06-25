@@ -48,7 +48,7 @@ fun MessageScreen() {
                 response: Response<MessageResponse>
             ) {
                 Pesan = if (response.isSuccessful) {
-                    response.body()?.Pesan ?: "tidak ada pesan"
+                    response.body()?.Title ?: "tidak ada pesan"
                 } else {
                     "Error: ${response.code()}"
                 }

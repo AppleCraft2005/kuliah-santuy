@@ -8,7 +8,6 @@
 
 body {
     background-color: #f5f5f5;
-    padding: 20px;
 }
 
 .container {
@@ -24,20 +23,24 @@ input, textarea, select {
     padding-right: 30px; 
 }
 
-/* icon font awesome */
 .fa-pen-to-square {color:goldenrod;}
 .fa-trash {color: red;}
 
-/* header */
 header {
     display: flex;
+    padding: 1rem;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #B3E5FC;
 }
 
 .header-text {
     flex-grow: 1;
+}
+
+main {
+    padding: 20px;
 }
 
 h1 {
@@ -65,7 +68,8 @@ h2 {
 /* button */
 .login-button, 
 .tambah-button,
-.back-button{
+.back-button,
+.fasilitas-button{
     background-color: #0099ff;
     border-radius: 4px;
     font-weight:500;
@@ -108,8 +112,20 @@ h2 {
 
 .login-button:hover,
 .tambah-button:hover,
-.back-button:hover {
+.back-button:hover,
+.fasilitas-button:hover {
     background-color: #0281d5;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation-btn-dashboard {
+    margin-top: 20px;
 }
 
 /* Search */
@@ -117,6 +133,7 @@ h2 {
     display: flex;
     justify-content: end;
     align-items: center;
+    margin-top: 10px;
     margin-bottom: 15px;
     gap: 10px;
 }
@@ -202,9 +219,14 @@ tr:hover {
     color: white;
 }
 
-
 .empty-notif {
     font-size: 1.1em; 
     color: #555; 
     text-align:center;
+}
+
+.input-ruangan-tanggal-search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }

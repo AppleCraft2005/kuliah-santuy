@@ -44,6 +44,6 @@ class Dashboard extends BaseController {
             ]
         ];
 
-        return view('dashboard_user_vw', $data);
+        return view('dashboards/dashboard_user_vw', $data);
     }
 }

@@ -23,7 +23,7 @@ html, body {
 /* bagian kiri */
 .left-content {
   flex: 1;
-  background-color: #ffffff;
+  background-color: #B3E5FC;
   padding: 40px;
   display: flex;
   justify-content: center;
