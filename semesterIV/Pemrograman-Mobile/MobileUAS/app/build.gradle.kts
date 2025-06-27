@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.1.21"
+    id("org.jetbrains.kotlin.kapt")
+
 }
 
 android {
@@ -70,4 +72,12 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.compose)
     implementation (libs.androidx.lifecycle.viewmodel.compose)
-}
+
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
+    implementation("com.airbnb.android:lottie-compose:6.6.7")}

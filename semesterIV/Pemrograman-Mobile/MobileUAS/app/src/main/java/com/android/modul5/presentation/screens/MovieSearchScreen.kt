@@ -26,12 +26,16 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.android.modul5.presentation.components.MovieCard
+import com.android.modul5.presentation.components.TitleFirst
 import com.android.modul5.presentation.components.TopBar
+import com.android.modul5.presentation.components.noInternetAnimate
+import com.android.modul5.presentation.components.waitingAnimate
 import com.android.modul5.presentation.ui.theme.MODUL5Theme
 import com.android.modul5.presentation.viewmodel.MovieSearchViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MovieSearchScreen(navController: NavController, searchViewModel: MovieSearchViewModel = viewModel()) {
+fun MovieSearchScreen(navController: NavController, searchViewModel: MovieSearchViewModel = koinViewModel()) {
     val searchQuery by searchViewModel.searchQuery.collectAsState()
     val searchResult by searchViewModel.searchResults.collectAsState()
     val isLoading by searchViewModel.isLoading.collectAsState()
@@ -43,6 +47,7 @@ fun MovieSearchScreen(navController: NavController, searchViewModel: MovieSearch
             .padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        TitleFirst("Pencarian Film")
         OutlinedTextField(
             value = searchQuery,
             onValueChange = { searchViewModel.onSearchQueryChanged(it)},
@@ -52,40 +57,36 @@ fun MovieSearchScreen(navController: NavController, searchViewModel: MovieSearch
                 .padding(bottom = 12.dp)
 
         )
-
-        if (isLoading) {
-            CircularProgressIndicator(modifier = Modifier.padding(16.dp))
-        }
-
-        errMsg?.let { msg ->
-            Text(msg)
-        }
-
-        if(!isLoading && errMsg == null) {
-            if(searchQuery.isNotBlank() && searchResult.isEmpty()) {
-                Text("Tidak ada Film yang ditemukan!")
+        
+        if (errMsg != null) {
+            if(errMsg == "No Internet Connection") {
+                noInternetAnimate()
             }
             else {
-                LazyVerticalGrid(
-                    columns = GridCells.Adaptive(minSize = 150.dp),
-                    modifier = Modifier.fillMaxWidth(),
+                Text(errMsg!!)
+            }
+        }
+        else if (searchQuery.isBlank()) {
+            waitingAnimate()
+        }
+        else if (isLoading) {
+            CircularProgressIndicator(modifier = Modifier.padding(16.dp))
+        }
+        else if(searchQuery.isNotBlank() && searchResult.isEmpty()){
+            Text("Tidak ada Film yang ditemukan!")
+        }
+        else {
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(minSize = 150.dp),
+                modifier = Modifier.fillMaxWidth(),
 //                    contentPadding = PaddingValues(8.dp),
 //                    horizontalArrangement = Arrangement.spacedBy(8.dp),
 //                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     items(searchResult) {movie ->
                         MovieCard(movieItem = movie, navController = navController)
-                    }
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewSearchScreen() {
-    MODUL5Theme { // Gunakan tema aplikasi Anda untuk preview
-        MovieSearchScreen(navController = rememberNavController()) // Dummy NavController untuk preview
     }
 }

@@ -1,5 +1,7 @@
 package com.android.modul5.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.io.Serial
@@ -12,8 +14,10 @@ data class MovieResponse(
     val total_results: Int
 )
 
+@Entity(tableName = "favorite_movies")
 @Serializable
 data class Movie(
+    @PrimaryKey
     val id: Int,
     val popularity: Double = 0.0,
     @SerialName("original_language")

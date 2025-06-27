@@ -1,4 +1,11 @@
 package com.android.modul5.domain.usecase
 
-class GetIndonesiaMovieUseCase {
+import com.android.modul5.domain.model.MovieResponse
+import com.android.modul5.domain.repository.MovieRepository
+import retrofit2.Response
+
+class GetIndonesiaMovieUseCase(private val repository: MovieRepository){
+    suspend operator fun invoke(): Response<MovieResponse> {
+        return repository.getIndonesiaMovies()
+    }
 }

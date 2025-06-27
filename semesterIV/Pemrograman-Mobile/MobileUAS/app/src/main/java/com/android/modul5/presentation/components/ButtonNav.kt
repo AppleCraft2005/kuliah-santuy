@@ -16,12 +16,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun ButtonNav(action: String, navController: NavController, movieId: Int = 0) {
-    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+fun ButtonNav(action: String, navController: NavController) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Button(
             onClick = {
-                if (action == "Detail") {navController.navigate("movie_detail/${movieId}")}
-                else {navController.popBackStack()}
+//                if (action == "Detail") {navController.navigate("movie_detail/${movieId}")}
+                navController.popBackStack()
             },
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.width(100.dp).height(35.dp)

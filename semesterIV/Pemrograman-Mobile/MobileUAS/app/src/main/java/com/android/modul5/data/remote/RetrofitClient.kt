@@ -11,6 +11,7 @@ object RetrofitClient {
         ignoreUnknownKeys = true
     }
     private const val BASE_URL = "https://api.themoviedb.org/3/"
+    const  val APIKEY = "9d2494a8a2a5c08592c8e963a74c799a"
 
     val tmdbAPI: TMDBAPI by lazy {
         Retrofit.Builder()

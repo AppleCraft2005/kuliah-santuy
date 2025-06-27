@@ -21,6 +21,21 @@ interface TMDBAPI {
         @Query("api_key") apikey: String,
     ) : Response<MovieResponse>
 
+    @GET("discover/movie")
+    suspend fun getIndonesiaMovies(
+        @Query("api_key") apikey: String,
+        @Query("with_origin_country") country: String = "ID",
+        @Query("sort_by") popularity: String = "popularity.desc",
+    ) : Response<MovieResponse>
+
+    @GET("discover/movie")
+    suspend fun getAnimeMovies(
+        @Query("api_key") apikey: String,
+        @Query("with_genres") genre: Int = 16,
+        @Query("with_origin_country") country: String = "JP",
+        @Query("sort_by") popularity: String = "popularity.desc",
+    ) : Response<MovieResponse>
+
     @GET("search/movie")
     suspend fun getMoviesbySearch(
         @Query("api_key") apikey: String,
@@ -32,4 +47,10 @@ interface TMDBAPI {
         @Path("movie_id") movieId: Int,
         @Query("api_key") apikey: String,
     ) : Response<MovieDetail>
+
+//    @GET("genre/movie/list")
+//    suspend fun getMovieGenres(
+//        @Query("api_key") apiKey: String,
+//        @Query("language") language: String = "en-US"
+//    ): Response<GenreListDTO>
 }

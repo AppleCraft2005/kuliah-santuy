@@ -6,6 +6,6 @@ import retrofit2.Response
 
 class GetAnimeMoviesUseCase(private val repository: MovieRepository) {
     suspend operator fun invoke(): Response<MovieResponse> {
-        return repository.getNowPlayingMovies()
+        return repository.getAnimeMovies()
     }
 }

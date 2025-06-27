@@ -1,4 +1,10 @@
 package com.android.modul5.domain.usecase
 
-class AddFavMovieUseCase {
+import com.android.modul5.domain.model.Movie
+import com.android.modul5.domain.repository.MovieRepository
+
+class AddFavMovieUseCase(private val repository: MovieRepository) {
+    suspend operator fun invoke(movie: Movie) {
+        repository.addFavMovie(movie)
+    }
 }

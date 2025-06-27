@@ -19,12 +19,13 @@ import com.android.modul5.presentation.components.TopBar
 import com.android.modul5.presentation.navigation.BottomNavigationItem
 import com.android.modul5.presentation.viewmodel.MovieDetailViewModel
 import com.android.modul5.presentation.viewmodel.MovieViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun NavMovies(isDarkMode: Boolean, onToggle: (Boolean) -> Unit) {
     val navController = rememberNavController()
-    val movieViewModel: MovieViewModel = viewModel()
-    val movieDetailViewModel: MovieDetailViewModel = viewModel()
+    val movieViewModel: MovieViewModel = koinViewModel()
+    val movieDetailViewModel: MovieDetailViewModel = koinViewModel()
     val navItems = listOf(
         BottomNavigationItem.Home,
         BottomNavigationItem.Search,
@@ -78,7 +79,7 @@ fun NavMovies(isDarkMode: Boolean, onToggle: (Boolean) -> Unit) {
                 MovieSearchScreen(navController = navController)
             }
             composable(BottomNavigationItem.Favourite.route) {
-                FavouriteMovieScreen()
+                FavouriteMovieScreen(navController = navController)
             }
             composable(BottomNavigationItem.About.route) {
                 AboutScreen(isDarkMode = isDarkMode, onToggle = onToggle)
