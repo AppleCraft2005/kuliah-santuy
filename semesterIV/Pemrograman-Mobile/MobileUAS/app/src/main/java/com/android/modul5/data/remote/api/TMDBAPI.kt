@@ -1,4 +1,4 @@
-package com.android.modul5.data.api
+package com.android.modul5.data.remote.api
 
 import com.android.modul5.domain.model.Movie
 import com.android.modul5.domain.model.MovieDetail

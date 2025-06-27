@@ -1,5 +1,6 @@
-package com.android.modul5.data.api
+package com.android.modul5.data.remote
 
+import com.android.modul5.data.remote.api.TMDBAPI
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
