@@ -1,7 +1,10 @@
 package com.android.modul5.presentation.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -14,35 +17,38 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.android.modul5.presentation.components.MovieCard
-import com.android.modul5.presentation.components.Title
-import com.android.modul5.presentation.components.TitleFirst
+import com.android.modul5.presentation.components.Card.MovieCardDetail
+import com.android.modul5.presentation.components.Text.TitleFirst
+import com.android.modul5.presentation.components.LottieAnimation.waitingAnimate
 import com.android.modul5.presentation.viewmodel.FavoriteMovieViewModel
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun FavouriteMovieScreen(navController: NavController, favoriteMovieViewModel: FavoriteMovieViewModel = koinViewModel()) {
+fun FavouriteMovieScreen(favoriteMovieViewModel: FavoriteMovieViewModel, navController: NavController) {
     val favoriteMovies by favoriteMovieViewModel.favoriteMovies.collectAsState()
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleFirst("Film Favorit")
-
-        LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 150.dp),
-            modifier = Modifier.fillMaxWidth(),
-//                    contentPadding = PaddingValues(8.dp),
-//                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-//                    verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(favoriteMovies) {movie ->
-                MovieCard(movieItem = movie, navController = navController)
+        TitleFirst("Favorite Movies")
+        if (favoriteMovies.isEmpty()) {
+            Spacer(modifier = Modifier.height(12.dp))
+            Text("No Favorite Movies here, please add one!")
+            waitingAnimate()
+        }
+        else {
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(minSize = 270.dp),
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                items(favoriteMovies) {movie ->
+                    MovieCardDetail(movieItem = movie, onFavClick = {favoriteMovieViewModel.removeMovieFromFav(it)})
+                }
             }
         }
     }
-
 }

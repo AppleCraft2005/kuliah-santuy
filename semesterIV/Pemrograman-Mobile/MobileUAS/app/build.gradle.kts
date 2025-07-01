@@ -80,4 +80,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
 
-    implementation("com.airbnb.android:lottie-compose:6.6.7")}
+    implementation("com.airbnb.android:lottie-compose:6.6.7")
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
+}
